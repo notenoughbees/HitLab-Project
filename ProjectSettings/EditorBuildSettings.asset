@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes: []
+  m_configObjects:
+    Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 16d0901f9a2cfff4cb30be51d03597ee,
+      type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0d57fd573fa180a46ba11541e882d8a7,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 43ddea7ea411e3741a0beb0a25b7fd69,
+      type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 51d086e0c124b6a41991daaa6af4d16c,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: d4764d38d7fe905439387d6ad2e85f58, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 31124c88064bdfa498ce56b6be96693f, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 17a54f8634854954897049048dd81747,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 89faac87d2f07a8479bd5cabbbbb543d,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7fdb214ef84af344ab6922213bb0b694,
+      type: 2}
