@@ -2,6 +2,7 @@
   "dependencies": {
     "com.niantic.lightship.maps": "https://github.com/niantic-lightship/maps-upm.git",
     "com.nianticlabs.lightship": "https://github.com/niantic-lightship/ardk-upm.git",
+    "com.nianticlabs.lightship.wps": "https://github.com/niantic-lightship/wps-upm.git",
     "com.unity.adaptiveperformance.samsung.android": "5.0.0",
     "com.unity.collab-proxy": "2.4.4",
     "com.unity.feature.mobile": "1.0.0",

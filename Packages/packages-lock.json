@@ -28,6 +28,16 @@
       },
       "hash": "e17d59a6a272c5e48774f3c0b671a55e94b5be3e"
     },
+    "com.nianticlabs.lightship.wps": {
+      "version": "https://github.com/niantic-lightship/wps-upm.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.nianticlabs.lightship": "3.7.0-2408080827",
+        "com.unity.xr.management": "4.0.1"
+      },
+      "hash": "0c1fa78a8c906f47e8c10f65309feb2cd9fe1363"
+    },
     "com.unity.adaptiveperformance": {
       "version": "5.0.0",
       "depth": 1,
