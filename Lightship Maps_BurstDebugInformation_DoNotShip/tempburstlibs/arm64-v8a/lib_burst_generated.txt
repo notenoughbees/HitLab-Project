@@ -14,11 +14,13 @@ Library: C:\Users\dsi61\dev\HitLab Project\Temp\BurstOutput\tempburstlibs\arm64-
 --assembly-defines=mscorlib;
 --assembly-defines=Newtonsoft.Json;
 --assembly-defines=Niantic.Lightship.AR;
+--assembly-defines=Niantic.Lightship.AR.WPS;
 --assembly-defines=Niantic.Lightship.Maps.Async;
 --assembly-defines=Niantic.Lightship.Maps.Core;
 --assembly-defines=Niantic.Lightship.Maps;
 --assembly-defines=Niantic.Lightship.Maps.Linq;
 --assembly-defines=Niantic.Lightship.Maps.SampleAssets;
+--assembly-defines=Niantic.Lightship.Maps.Samples.CustomMapLayers;
 --assembly-defines=Niantic.Lightship.Maps.Samples.GameSample;
 --assembly-defines=Niantic.Platform.Analytics.NATelemetry;
 --assembly-defines=Niantic.Platform.Debugging;
@@ -146,11 +148,13 @@ Library: C:\Users\dsi61\dev\HitLab Project\Temp\BurstOutput\tempburstlibs\arm64-
 --assembly-defines=mscorlib;
 --assembly-defines=Newtonsoft.Json;
 --assembly-defines=Niantic.Lightship.AR;
+--assembly-defines=Niantic.Lightship.AR.WPS;
 --assembly-defines=Niantic.Lightship.Maps.Async;
 --assembly-defines=Niantic.Lightship.Maps.Core;
 --assembly-defines=Niantic.Lightship.Maps;
 --assembly-defines=Niantic.Lightship.Maps.Linq;
 --assembly-defines=Niantic.Lightship.Maps.SampleAssets;
+--assembly-defines=Niantic.Lightship.Maps.Samples.CustomMapLayers;
 --assembly-defines=Niantic.Lightship.Maps.Samples.GameSample;
 --assembly-defines=Niantic.Platform.Analytics.NATelemetry;
 --assembly-defines=Niantic.Platform.Debugging;

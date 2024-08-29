@@ -22,6 +22,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Trails_Unlit_Building
   m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -31,6 +33,7 @@ Material:
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -59,6 +62,6 @@ Material:
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.23137255, g: 0.5294118, b: 0.2509804, a: 1}
-    - _Color: {r: 0.2313725, g: 0.5294118, b: 0.25098038, a: 1}
+    - _BaseColor: {r: 0.43092817, g: 0.49056602, b: 0.42808828, a: 1}
+    - _Color: {r: 0.43092814, g: 0.49056596, b: 0.42808825, a: 1}
   m_BuildTextureStacks: []
