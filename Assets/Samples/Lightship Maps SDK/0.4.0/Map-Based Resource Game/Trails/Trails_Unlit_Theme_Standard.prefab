@@ -175,7 +175,7 @@ MonoBehaviour:
   _builderName: Grass
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0005
+  _zOffset: 0.0007
   _mapLayer: 4
   _features: 14000000
   _materials:
@@ -235,7 +235,7 @@ MonoBehaviour:
   _builderName: GolfCourse
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0008
+  _zOffset: 0.001
   _mapLayer: 4
   _features: 13000000
   _materials:
@@ -415,7 +415,7 @@ MonoBehaviour:
   _builderName: Wood
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0007
+  _zOffset: 0.0008
   _mapLayer: 4
   _features: 3c000000
   _materials:
@@ -475,7 +475,7 @@ MonoBehaviour:
   _builderName: Forest
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0005
+  _zOffset: 0.0006
   _mapLayer: 4
   _features: 10000000
   _materials:
@@ -655,7 +655,7 @@ MonoBehaviour:
   _builderName: Nature Reserve
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0008
+  _zOffset: 0.0009
   _mapLayer: 4
   _features: 1f000000
   _materials:
@@ -775,7 +775,7 @@ MonoBehaviour:
   _builderName: Protected Area
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0004
+  _zOffset: 0.0003
   _mapLayer: 4
   _features: 4e000000
   _materials:
@@ -895,7 +895,7 @@ MonoBehaviour:
   _builderName: Cemetery
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0006
+  _zOffset: 0.0007
   _mapLayer: 4
   _features: 03000000
   _materials:
