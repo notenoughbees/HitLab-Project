@@ -6649,6 +6649,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411316146}
   m_CullTransparentMesh: 1
+--- !u!1 &1467900009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467900010}
+  m_Layer: 0
+  m_Name: Place Object on Map Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1467900010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467900009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2128388854}
+  - {fileID: 1967098128}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1475091062
 GameObject:
   m_ObjectHideFlags: 0
@@ -7866,7 +7899,7 @@ PrefabInstance:
     - target: {fileID: 4679712108560714345, guid: 652c0f1d2f3184a959f719dbc90057a4,
         type: 3}
       propertyPath: _mapLayers.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4679712108560714345, guid: 652c0f1d2f3184a959f719dbc90057a4,
         type: 3}
@@ -7877,16 +7910,23 @@ PrefabInstance:
         type: 3}
       propertyPath: _mapLayers.Array.data[1]
       value: 
-      objectReference: {fileID: 1157190691}
+      objectReference: {fileID: 7016837942969204411, guid: f718a79e08a1e05468e526bd633a828a,
+        type: 3}
+    - target: {fileID: 4679712108560714345, guid: 652c0f1d2f3184a959f719dbc90057a4,
+        type: 3}
+      propertyPath: _mapLayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 811684427691433139, guid: 385ed16cedbb4344a94c39e1a001073b,
+        type: 3}
     - target: {fileID: 4679712108560714345, guid: 652c0f1d2f3184a959f719dbc90057a4,
         type: 3}
       propertyPath: _defaultLocation._latitude
-      value: -43.522712439412395
+      value: -43.52177289451818
       objectReference: {fileID: 0}
     - target: {fileID: 4679712108560714345, guid: 652c0f1d2f3184a959f719dbc90057a4,
         type: 3}
       propertyPath: _defaultLocation._longitude
-      value: 172.58308411539542
+      value: 172.58277490404384
       objectReference: {fileID: 0}
     - target: {fileID: 4679712108560714347, guid: 652c0f1d2f3184a959f719dbc90057a4,
         type: 3}
@@ -8481,6 +8521,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947985077}
   m_CullTransparentMesh: 1
+--- !u!1 &1967098126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967098128}
+  - component: {fileID: 1967098127}
+  m_Layer: 0
+  m_Name: StarSpawner_Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1967098127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967098126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4108dda22f7c430fa958a6cf0be673ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Star
+  _prefab: {fileID: 3720867298404714495, guid: cba9db9175ad0994ab3afd48c3a10b1d, type: 3}
+  _heightOffset: 0
+  _scaleWithMapRadius: 0
+  _relativeScale: 1
+  _minimumScale: 0
+  _maximumScale: Infinity
+--- !u!4 &1967098128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967098126}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1467900010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003933079
 GameObject:
   m_ObjectHideFlags: 0
@@ -9407,6 +9498,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126873266}
   m_CullTransparentMesh: 1
+--- !u!1 &2128388852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128388854}
+  - component: {fileID: 2128388855}
+  m_Layer: 0
+  m_Name: ObjectPlacerManager_Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128388854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128388852}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1956.7257, y: 887.93506, z: 488.92578}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1467900010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128388855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128388852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7893bb6fa8ea34840ad56e0c3ea2d1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectSpawner: {fileID: 1157190692}
+  _lightshipMapView: {fileID: 1836656381}
 --- !u!1 &2136862354
 GameObject:
   m_ObjectHideFlags: 0
@@ -9673,3 +9810,4 @@ SceneRoots:
   - {fileID: 1011308920}
   - {fileID: 447429842}
   - {fileID: 826614712}
+  - {fileID: 1467900010}

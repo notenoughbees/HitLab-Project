@@ -1,8 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Niantic.Lightship.Maps.Core.Coordinates;
 using Niantic.Lightship.Maps.MapLayers.Components;
-using UnityEngine;
+using Niantic.Lightship.Maps;
 
-public class MyMapObjectPlacerManager : MonoBehaviour
+public class MyMapObjectPlacer_Tutorial : MonoBehaviour
 {
     // from tutorial: https://lightship.dev/docs/maps/unity/how-to/place_objects_on_map
     [SerializeField]
@@ -10,11 +13,16 @@ public class MyMapObjectPlacerManager : MonoBehaviour
 
     private Camera _mapCamera;
 
+    // TAKEN FROM MapGameInteractions.cs
+    [SerializeField]
+    private LightshipMapView _lightshipMapView;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("MyMapObjectPlacer2 START");
         _mapCamera = Camera.main;
     }
 
@@ -28,7 +36,7 @@ public class MyMapObjectPlacerManager : MonoBehaviour
         if (Input.touchCount > 0)
 #endif
         {
-            Debug.Log("clicked or touched");
+            Debug.Log("MyMapObjectPlacer2 clicked or touched");
 
             Vector2 touchPosition = Input.mousePosition;
             PlaceObject(touchPosition);
@@ -37,7 +45,8 @@ public class MyMapObjectPlacerManager : MonoBehaviour
 
 
 
-    public void PlaceObject(Vector2 touchPosition) {
+    public void PlaceObject(Vector3 touchPosition)
+    {
         // from tutorial: https://lightship.dev/docs/maps/unity/how-to/place_objects_on_map
         var location = ScreenPointToLatLong(touchPosition);
         var cameraForward = _mapCamera.transform.forward;
@@ -45,11 +54,14 @@ public class MyMapObjectPlacerManager : MonoBehaviour
         var rotation = Quaternion.LookRotation(forward);
 
         _objectSpawner.PlaceInstance(location, rotation);
+        Debug.Log("MyMapObjectPlacer2 PlaceInstance()");
     }
 
-    private LatLng ScreenPointToLatLong(Vector2 screenPoint)
+    // TAKEN FROM MapGameInteractions.cs
+    private LatLng ScreenPointToLatLong(Vector3 screenPosition)
     {
-        return new LatLng(screenPoint.x, screenPoint.y);
+        var clickRay = _mapCamera.ScreenPointToRay(screenPosition);
+        var pointOnMap = clickRay.origin + clickRay.direction * (-clickRay.origin.y / clickRay.direction.y);
+        return _lightshipMapView.SceneToLatLng(pointOnMap);
     }
-
 }
