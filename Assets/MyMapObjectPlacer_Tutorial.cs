@@ -57,6 +57,7 @@ public class MyMapObjectPlacer_Tutorial : MonoBehaviour
         Debug.Log("MyMapObjectPlacer2 PlaceInstance()");
     }
 
+
     // TAKEN FROM MapGameInteractions.cs
     private LatLng ScreenPointToLatLong(Vector3 screenPosition)
     {

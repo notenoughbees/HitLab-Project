@@ -115,7 +115,7 @@ MonoBehaviour:
   _builderName: Glacier
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.008
+  _zOffset: 0.005
   _mapLayer: 4
   _features: 12000000
   _materials:
@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3805515605559730926
 Transform:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   _builderName: Grass
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.003
+  _zOffset: 0.0025
   _mapLayer: 4
   _features: 14000000
   _materials:
@@ -235,7 +235,7 @@ MonoBehaviour:
   _builderName: GolfCourse
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0065
+  _zOffset: 0.005
   _mapLayer: 4
   _features: 13000000
   _materials:
@@ -295,7 +295,7 @@ MonoBehaviour:
   _builderName: Scrub
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.005
+  _zOffset: 0.0035
   _mapLayer: 4
   _features: 52000000
   _materials:
@@ -355,7 +355,7 @@ MonoBehaviour:
   _builderName: Garden
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0025
+  _zOffset: 0.002
   _mapLayer: 4
   _features: 11000000
   _materials:
@@ -415,7 +415,7 @@ MonoBehaviour:
   _builderName: Wood
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0045
+  _zOffset: 0.003
   _mapLayer: 4
   _features: 3c000000
   _materials:
@@ -475,7 +475,7 @@ MonoBehaviour:
   _builderName: Forest
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0035
+  _zOffset: 0.0025
   _mapLayer: 4
   _features: 10000000
   _materials:
@@ -540,8 +540,8 @@ MonoBehaviour:
   _features: 5f000000
   _materials:
   - {fileID: 2100000, guid: abd43465bedcbde459bfdfc10dd62069, type: 2}
-  _minHeight: 0.0045
-  _maxHeight: 1000000
+  _minHeight: 0.025
+  _maxHeight: 1000
 --- !u!1 &4701887339049222900
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +597,7 @@ MonoBehaviour:
   _builderName: Wetland
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.004
+  _zOffset: 0.003
   _mapLayer: 4
   _features: 3b000000
   _materials:
@@ -657,7 +657,7 @@ MonoBehaviour:
   _builderName: Meadow
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0055
+  _zOffset: 0.004
   _mapLayer: 4
   _features: 1d000000
   _materials:
@@ -717,7 +717,7 @@ MonoBehaviour:
   _builderName: Nature Reserve
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.006
+  _zOffset: 0.005
   _mapLayer: 4
   _features: 1f000000
   _materials:
@@ -777,7 +777,7 @@ MonoBehaviour:
   _builderName: Rock
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.007
+  _zOffset: 0.0045
   _mapLayer: 4
   _features: 50000000
   _materials:
@@ -897,7 +897,7 @@ MonoBehaviour:
   _builderName: Farm
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.002
+  _zOffset: 0.015
   _mapLayer: 4
   _features: 0c0000000d000000
   _materials:
@@ -957,7 +957,7 @@ MonoBehaviour:
   _builderName: Cemetery
   _minLOD: 1
   _maxLOD: 17
-  _zOffset: 0.0075
+  _zOffset: 0.005
   _mapLayer: 4
   _features: 03000000
   _materials:
@@ -1038,7 +1038,7 @@ PrefabInstance:
     - target: {fileID: 927630385647433643, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _zOffset
-      value: 0.009
+      value: 0.007
       objectReference: {fileID: 0}
     - target: {fileID: 927630385647433643, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
@@ -1063,7 +1063,7 @@ PrefabInstance:
     - target: {fileID: 2042459294223664010, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _zOffset
-      value: 0.01
+      value: 0.008
       objectReference: {fileID: 0}
     - target: {fileID: 2042459294223664010, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
@@ -1248,7 +1248,7 @@ PrefabInstance:
     - target: {fileID: 4390146466171986028, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _zOffset
-      value: 0.0085
+      value: 0.006
       objectReference: {fileID: 0}
     - target: {fileID: 4390146466171986028, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
@@ -1263,7 +1263,12 @@ PrefabInstance:
     - target: {fileID: 5737022542264513315, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _maxHeight
-      value: 100000
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737022542264513315, guid: cd277179f7659423ea870564d2ff9e75,
+        type: 3}
+      propertyPath: _minHeight
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5737022542264513315, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
@@ -1443,7 +1448,7 @@ PrefabInstance:
     - target: {fileID: 5927081514552440640, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _zOffset
-      value: 0.012
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: 5927081514552440640, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
@@ -1613,7 +1618,7 @@ PrefabInstance:
     - target: {fileID: 6880524246064127782, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _zOffset
-      value: 0.009
+      value: 0.007
       objectReference: {fileID: 0}
     - target: {fileID: 6880524246064127782, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
@@ -1633,7 +1638,7 @@ PrefabInstance:
     - target: {fileID: 9033748663264107176, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       propertyPath: _zOffset
-      value: 0.011
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: 9033748663264107176, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}

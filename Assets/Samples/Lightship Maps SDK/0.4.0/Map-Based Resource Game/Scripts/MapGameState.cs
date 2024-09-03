@@ -68,15 +68,15 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
 
         public bool IsResourceProductionEnabled(ResourceType resourceType)
         {
-            Debug.Log("Is resource production enabled for... " + resourceType);
-            Debug.Log("?" + _resourceProduction.ContainsKey(resourceType));
-            Debug.Log("?" + _resourceProduction[resourceType]);
+            //Debug.Log("Is resource production enabled for... " + resourceType);
+            //Debug.Log("?" + _resourceProduction.ContainsKey(resourceType));
+            //Debug.Log("?" + _resourceProduction[resourceType]);
             return _resourceProduction.ContainsKey(resourceType) && _resourceProduction[resourceType] == true;
         }
 
         public void EnableResourceProduction(ResourceType resourceType, Boolean isEnabled)
         {
-            Debug.Log("Enabling resource production for " + resourceType);
+            //Debug.Log("Enabling resource production for " + resourceType);
             _resourceProduction[resourceType] = isEnabled;
         }
 

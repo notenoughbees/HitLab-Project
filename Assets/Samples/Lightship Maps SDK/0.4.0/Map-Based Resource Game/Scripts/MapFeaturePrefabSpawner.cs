@@ -28,12 +28,12 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
             // BUG: this method only runs on startup, so when we unlock stone, they never appear
 
 
-            Debug.Log("Build RUNNING for " + parent);
-            Debug.Log("?" + MapGameState.Instance.IsResourceProductionEnabled(_resourceType));
+            //Debug.Log("Build RUNNING for " + parent);
+            //Debug.Log("?" + MapGameState.Instance.IsResourceProductionEnabled(_resourceType));
             if (MapGameState.Instance.IsResourceProductionEnabled(_resourceType))
             {
                 // Only spawn objects if this type of resource production is enabled
-                Debug.Log("Building a " + _resourceType);
+                //Debug.Log("Building a " + _resourceType);
                 base.Build(mapTile, parent);
             }
         }

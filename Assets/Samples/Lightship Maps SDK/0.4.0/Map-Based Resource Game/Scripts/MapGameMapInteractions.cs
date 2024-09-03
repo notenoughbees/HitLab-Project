@@ -91,7 +91,7 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
             var forward = new Vector3(cameraForward.x, 0f, cameraForward.z).normalized;
             var rotation = Quaternion.LookRotation(forward);
 
-            Debug.Log("Placing something!");
+            //Debug.Log("Placing something!");
             switch (_placingStructureType)
             {
                 case MapGameState.StructureType.Sawmill:
@@ -101,7 +101,7 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
                 case MapGameState.StructureType.StoneMason:
                     _stoneMasonSpawner.PlaceInstance(structureLatLng, rotation);
                     // Unlock stone resources on the map when StoneMason built
-                    Debug.Log("Placing a StoneMason!");
+                    //Debug.Log("Placing a StoneMason!");
                     MapGameState.Instance.EnableResourceProduction(MapGameState.ResourceType.Stone, true);
                     break;
 
