@@ -22,7 +22,6 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
         private MapGameState.ResourceType _resourceType;
 
         /// <inheritdoc />
-        
         public override void Build(IMapTile mapTile, GameObject parent)
         {
             // BUG: this method only runs on startup, so when we unlock stone, they never appear

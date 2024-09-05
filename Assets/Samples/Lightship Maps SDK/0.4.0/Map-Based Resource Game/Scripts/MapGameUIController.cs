@@ -47,6 +47,9 @@ using UnityEngine;
         private TourismGameLandmarkFoundName _landmarkFoundScreen;
 
         [SerializeField]
+        private GameObject _galleryScreen;  // test screen just for learning how to make a gallery of pictures
+
+        [SerializeField]
         private TMP_Text _woodText;
 
         [SerializeField]
@@ -98,7 +101,8 @@ using UnityEngine;
                     {"John Britten East Entrance", Tuple.Create(-43.52069f, 172.58339f) },
                     {"Engcore Carpark Tree", Tuple.Create(-43.52118f, 172.58391f) },
                     {"EPS Entrance", Tuple.Create(-43.52128f, 172.58437f) },
-                    {"Sir Robertson Stewart", Tuple.Create(-43.52209f, 172.58308f) }
+                    {"Kauri Tree near Chemical Engineering", Tuple.Create(-43.52149f, 172.58451f) },
+                    //{"Sir Robertson Stewart Statue", Tuple.Create(-43.52209f, 172.58308f) },
                 };
 
             var current_lat = (float)gpsInfo.latitude; // convert doubles to floats: loses precision, but floats are good enough
@@ -207,5 +211,23 @@ using UnityEngine;
             _landmarkFoundScreen.gameObject.SetActive(false);
             _gamePlayScreen.SetActive(true);
         }
-    }
+
+        public void OnLandmarkFoundARPressed()
+        {
+            _landmarkFoundScreen.gameObject.SetActive(false);
+            _gamePlayScreen.SetActive(true);
+        }
+
+        public void OnGameplayOpenGalleryPressed()
+        {
+            _gamePlayScreen.SetActive(false);
+            _galleryScreen.SetActive(true);
+        }
+
+        public void OnGalleryClosePressed()
+        {
+            _galleryScreen.SetActive(false);
+            _gamePlayScreen.SetActive(true);
+        }
+}
 //}

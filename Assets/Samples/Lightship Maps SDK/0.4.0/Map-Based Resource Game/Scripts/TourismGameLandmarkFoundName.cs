@@ -19,9 +19,6 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
 
         private void OnEnable()
         {
-            // get the TMP UGUI component from the game object, & populate textmeshpro_landmarkName_text with that component
-            //textmeshpro_landmarkName_text = textmeshpro_landmarkName.GetComponent<TextMeshProUGUI>();
-
             playerLocationController = FindObjectOfType<PlayerLocationController>();
             string landmarkName = playerLocationController.getLandmarkName();
             _landmarkNameText.text = landmarkName;
