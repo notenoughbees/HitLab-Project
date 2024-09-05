@@ -1,18 +1,21 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+using System.Collections.Generic;
 using Niantic.Lightship.Maps.SampleAssets.Player;
+using Niantic.Lightship.Maps.Samples.GameSample;
 using TMPro;
 using UnityEngine;
 
-namespace Niantic.Lightship.Maps.Samples.GameSample
-{
+//namespace Niantic.Lightship.Maps.Samples.GameSample
+//{
     /// <summary>
     /// Simple UI controller for the MapGame, it switches between a couple of screens and reacts to
     /// various button presses and keeps resources UI updated
     /// </summary>
-    internal class MapGameUIController : MonoBehaviour
+    public class MapGameUIController : MonoBehaviour
     {
+     
         [SerializeField]
         private MapGameMapInteractions _mapInteractibles;
 
@@ -41,6 +44,9 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
         private GameObject _gameOverScreen;
 
         [SerializeField]
+        private TourismGameLandmarkFoundName _landmarkFoundScreen;
+
+        [SerializeField]
         private TMP_Text _woodText;
 
         [SerializeField]
@@ -58,6 +64,8 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
         // keeps track if the player has already won or not
         private bool _hasPlayerWon;
 
+        private double _lastGpsUpdateTime;
+
         private void Start()
         {
             _introScreen.SetActive(true);
@@ -72,11 +80,49 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
             _player.OnGpsError += OnGpsError;
         }
 
-        private void OnGpsError(string errorMessage)
+        private void Update()
         {
-            _errorText.text = errorMessage;
-            _errorScreen.SetActive(true);
+            var gpsInfo = Input.location.lastData; // use Unity's GPS system
+                if (gpsInfo.timestamp > _lastGpsUpdateTime)
+                {
+                    _lastGpsUpdateTime = gpsInfo.timestamp;
+                    CheckIfPlayerNearLocation(gpsInfo);
+                }
         }
+
+        private void CheckIfPlayerNearLocation(LocationInfo gpsInfo)
+        {
+            Dictionary<string, Tuple<float, float>> landmarks = new Dictionary<string, Tuple<float, float>>
+                {
+                    //{"John Britten North Entrance", Tuple.Create(-43.52046f, 172.58311f) },
+                    {"John Britten East Entrance", Tuple.Create(-43.52069f, 172.58339f) },
+                    {"Engcore Carpark Tree", Tuple.Create(-43.52118f, 172.58391f) },
+                    {"EPS Entrance", Tuple.Create(-43.52128f, 172.58437f) },
+                    {"Sir Robertson Stewart", Tuple.Create(-43.52209f, 172.58308f) }
+                };
+
+            var current_lat = (float)gpsInfo.latitude; // convert doubles to floats: loses precision, but floats are good enough
+            var current_lng = (float)gpsInfo.longitude;
+
+            foreach (KeyValuePair<string, Tuple<float, float>> landmark in landmarks)
+            {
+                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.0001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
+                {
+                    _landmarkFoundScreen.gameObject.SetActive(true);
+                    _landmarkFoundScreen.changeLandmarkName(landmark.Key); // make a ui element appear
+                }
+                else
+                {
+                    //_landmarkFoundScreen.gameObject.SetActive(false);
+                }
+            }
+        }
+
+        private void OnGpsError(string errorMessage)
+            {
+                _errorText.text = errorMessage;
+                _errorScreen.SetActive(true);
+            }
 
         private void OnDestroy()
         {
@@ -155,5 +201,11 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
             _gameOverScreen.SetActive(false);
             _gamePlayScreen.SetActive(true);
         }
+
+        public void OnLandmarkFoundContinuePressed()
+        {
+            _landmarkFoundScreen.gameObject.SetActive(false);
+            _gamePlayScreen.SetActive(true);
+        }
     }
-}
+//}

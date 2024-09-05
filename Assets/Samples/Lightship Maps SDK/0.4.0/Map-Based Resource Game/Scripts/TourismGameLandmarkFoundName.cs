@@ -26,5 +26,10 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
             string landmarkName = playerLocationController.getLandmarkName();
             _landmarkNameText.text = landmarkName;
         }
+
+        public void changeLandmarkName(string n)
+        {
+            _landmarkNameText.text = n;
+        }
     }
 }
