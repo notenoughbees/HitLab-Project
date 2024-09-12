@@ -50,6 +50,21 @@ using UnityEngine;
         private GameObject _galleryScreen;  // test screen just for learning how to make a gallery of pictures
 
         [SerializeField]
+        private GameObject _arModeScreen;
+
+        [SerializeField]
+        private GameObject _XrOrigin;
+
+        [SerializeField]
+        private GameObject _ArSession;
+
+        [SerializeField]
+        private GameObject _lightshipMap;
+
+        [SerializeField]
+        private GameObject _mapCamera;
+
+        [SerializeField]
         private TMP_Text _woodText;
 
         [SerializeField]
@@ -64,7 +79,7 @@ using UnityEngine;
         [SerializeField]
         private TMP_Text _errorText;
 
-        // keeps track if the player has already won or not
+
         private bool _hasPlayerWon;
 
         private double _lastGpsUpdateTime;
@@ -215,8 +230,28 @@ using UnityEngine;
         public void OnLandmarkFoundARPressed()
         {
             _landmarkFoundScreen.gameObject.SetActive(false);
-            _gamePlayScreen.SetActive(true);
+            _gamePlayScreen.SetActive(false);
+
+            _arModeScreen.SetActive(true);
+            // enable the XR Origin & AR Session so we go into AR mode
+            _XrOrigin.SetActive(true);
+            _ArSession.SetActive(true);
+
+            // disable entire lightship map - otherwise it weirdly tries to draw the ground, roads etc in the world and they get in the way
+            _lightshipMap.SetActive(false);
+            _mapCamera.SetActive(false);
         }
+
+        public void OnArModeBackPressed()
+        {
+            _arModeScreen.SetActive(false);
+            _gamePlayScreen.SetActive(true);
+
+            _XrOrigin.SetActive(false);
+            _ArSession.SetActive(false);
+            _lightshipMap.SetActive(true);
+            _mapCamera.SetActive(true);
+    }
 
         public void OnGameplayOpenGalleryPressed()
         {
