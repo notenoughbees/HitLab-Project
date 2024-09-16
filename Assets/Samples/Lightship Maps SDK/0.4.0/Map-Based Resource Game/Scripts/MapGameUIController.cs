@@ -112,7 +112,7 @@ using UnityEngine;
         {
             Dictionary<string, Tuple<float, float>> landmarks = new Dictionary<string, Tuple<float, float>>
                 {
-                    //{"John Britten North Entrance", Tuple.Create(-43.52046f, 172.58311f) },
+                    {"John Britten North Entrance", Tuple.Create(-43.52046f, 172.58311f) },
                     {"John Britten East Entrance", Tuple.Create(-43.52069f, 172.58339f) },
                     {"Engcore Carpark Tree", Tuple.Create(-43.52118f, 172.58391f) },
                     {"EPS Entrance", Tuple.Create(-43.52128f, 172.58437f) },
@@ -125,7 +125,7 @@ using UnityEngine;
 
             foreach (KeyValuePair<string, Tuple<float, float>> landmark in landmarks)
             {
-                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.0001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
+                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
                 {
                     _landmarkFoundScreen.gameObject.SetActive(true);
                     _landmarkFoundScreen.changeLandmarkName(landmark.Key); // make a ui element appear
