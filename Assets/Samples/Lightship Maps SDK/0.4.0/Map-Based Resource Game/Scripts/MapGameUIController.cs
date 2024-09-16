@@ -59,6 +59,9 @@ using UnityEngine;
         private GameObject _ArSession;
 
         [SerializeField]
+        private GameObject _compassUI;
+
+        [SerializeField]
         private GameObject _lightshipMap;
 
         [SerializeField]
@@ -125,7 +128,7 @@ using UnityEngine;
 
             foreach (KeyValuePair<string, Tuple<float, float>> landmark in landmarks)
             {
-                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
+                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.0001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
                 {
                     _landmarkFoundScreen.gameObject.SetActive(true);
                     _landmarkFoundScreen.changeLandmarkName(landmark.Key); // make a ui element appear
@@ -236,6 +239,7 @@ using UnityEngine;
             // enable the XR Origin & AR Session so we go into AR mode
             _XrOrigin.SetActive(true);
             _ArSession.SetActive(true);
+            _compassUI.SetActive(true);
 
             // disable entire lightship map - otherwise it weirdly tries to draw the ground, roads etc in the world and they get in the way
             _lightshipMap.SetActive(false);
@@ -249,9 +253,11 @@ using UnityEngine;
 
             _XrOrigin.SetActive(false);
             _ArSession.SetActive(false);
+            _compassUI.SetActive(false);
+
             _lightshipMap.SetActive(true);
             _mapCamera.SetActive(true);
-    }
+        }
 
         public void OnGameplayOpenGalleryPressed()
         {
