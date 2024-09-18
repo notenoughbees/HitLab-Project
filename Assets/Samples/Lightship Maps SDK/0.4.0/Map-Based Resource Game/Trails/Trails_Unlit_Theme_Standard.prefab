@@ -782,6 +782,95 @@ MonoBehaviour:
   _features: 50000000
   _materials:
   - {fileID: 2100000, guid: 3540e0df14547064dbf34973ce002eb2, type: 2}
+--- !u!1 &7096159273154381403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4675251476597670370}
+  - component: {fileID: 7768570932477529931}
+  - component: {fileID: 2283623497791097738}
+  m_Layer: 0
+  m_Name: MyCustomPrefabSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4675251476597670370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7096159273154381403}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6346798361454502904}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7768570932477529931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7096159273154381403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe69ea89fe76ef4ab20a45460905aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _undefinedFeatures: 
+  _boundaryFeatures: 
+  _structureFeatures: 
+  _landUseFeatures: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
+  _placesFeatures: 
+  _linearFeatures: 
+  _transitFeatures: 
+  _waterFeatures: 
+  _builderName: Custom Resource
+  _minLOD: 0
+  _maxLOD: 17
+  _zOffset: 0.001
+  _mapLayer: 4
+  _features: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
+  _prefab: {fileID: 2526952447558899299, guid: e0ed27e1e7f674e8ea408ac9ab4f04c2, type: 3}
+  _resourceType: 0
+--- !u!114 &2283623497791097738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7096159273154381403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840ac0a6e16384f00adfe9093965e631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _undefinedFeatures: 
+  _boundaryFeatures: 
+  _structureFeatures: 
+  _landUseFeatures: 
+  _placesFeatures: 
+  _linearFeatures: 
+  _transitFeatures: 
+  _waterFeatures: 
+  _builderName: Custom Resource
+  _minLOD: 0
+  _maxLOD: 17
+  _zOffset: 0
+  _mapLayer: 4
+  _features: 
+  _prefab: {fileID: 2526952447558899299, guid: e0ed27e1e7f674e8ea408ac9ab4f04c2, type: 3}
+  _resourceType: 0
 --- !u!1 &8009139261148807873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1541,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5927081514552440640, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
+      propertyPath: _linearFeatureSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927081514552440640, guid: cd277179f7659423ea870564d2ff9e75,
+        type: 3}
+      propertyPath: _customLinearFeatureMax
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927081514552440640, guid: cd277179f7659423ea870564d2ff9e75,
+        type: 3}
+      propertyPath: _customLinearFeatureMin
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927081514552440640, guid: cd277179f7659423ea870564d2ff9e75,
+        type: 3}
       propertyPath: _materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 39ff355065860bd4ba5e4d7dc404c48e, type: 2}
@@ -1765,6 +1869,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5553918959906869565}
+    - targetCorrespondingSourceObject: {fileID: 5549442952622489535, guid: cd277179f7659423ea870564d2ff9e75,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4675251476597670370}
     - targetCorrespondingSourceObject: {fileID: 5549442952622489535, guid: cd277179f7659423ea870564d2ff9e75,
         type: 3}
       insertIndex: -1

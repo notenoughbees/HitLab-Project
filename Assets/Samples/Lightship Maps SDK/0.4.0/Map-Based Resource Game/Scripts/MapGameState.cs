@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using Niantic.Lightship.Maps.Core.Coordinates;
 using UnityEngine;
 
-namespace Niantic.Lightship.Maps.Samples.GameSample
-{
+//namespace Niantic.Lightship.Maps.Samples.GameSample
+//{
     /// <summary>
     /// This singleton holds the current values for resources and tracks placed buildings
     /// It also updates the UI on resource values, which
     /// TODO: Save state so resources and structure and persistent
     /// </summary>
-    internal class MapGameState : MonoBehaviour
+    public class MapGameState : MonoBehaviour   // changed from internal to public so that MyMapFeaturePrefabSpawner can access it
     {
         public static MapGameState Instance { get; private set; }
 
@@ -113,4 +113,4 @@ namespace Niantic.Lightship.Maps.Samples.GameSample
             return _structureCosts[(int)structureType];
         }
     }
-}
+//}

@@ -234,8 +234,8 @@ using UnityEngine;
         {
             _landmarkFoundScreen.gameObject.SetActive(false);
             _gamePlayScreen.SetActive(false);
-
             _arModeScreen.SetActive(true);
+
             // enable the XR Origin & AR Session so we go into AR mode
             _XrOrigin.SetActive(true);
             _ArSession.SetActive(true);
