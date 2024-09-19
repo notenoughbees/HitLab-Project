@@ -6,14 +6,15 @@ using Niantic.Lightship.Maps.SampleAssets.Player;
 using Niantic.Lightship.Maps.Samples.GameSample;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //namespace Niantic.Lightship.Maps.Samples.GameSample
 //{
-    /// <summary>
-    /// Simple UI controller for the MapGame, it switches between a couple of screens and reacts to
-    /// various button presses and keeps resources UI updated
-    /// </summary>
-    public class MapGameUIController : MonoBehaviour
+/// <summary>
+/// Simple UI controller for the MapGame, it switches between a couple of screens and reacts to
+/// various button presses and keeps resources UI updated
+/// </summary>
+public class MapGameUIController : MonoBehaviour
     {
      
         [SerializeField]
@@ -119,8 +120,9 @@ using UnityEngine;
                     {"John Britten East Entrance", Tuple.Create(-43.52069f, 172.58339f) },
                     {"Engcore Carpark Tree", Tuple.Create(-43.52118f, 172.58391f) },
                     {"EPS Entrance", Tuple.Create(-43.52128f, 172.58437f) },
+                    {"Sir Robertson Stewart Statue", Tuple.Create(-43.52209f, 172.58308f) },
+                    {"Forestry Entrance", Tuple.Create(-43.52302f, 172.58535f) },
                     {"Kauri Tree near Chemical Engineering", Tuple.Create(-43.52149f, 172.58451f) },
-                    //{"Sir Robertson Stewart Statue", Tuple.Create(-43.52209f, 172.58308f) },
                 };
 
             var current_lat = (float)gpsInfo.latitude; // convert doubles to floats: loses precision, but floats are good enough
@@ -128,7 +130,7 @@ using UnityEngine;
 
             foreach (KeyValuePair<string, Tuple<float, float>> landmark in landmarks)
             {
-                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.0001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
+                if (Vector3.Distance(new Vector3(current_lat, 0, current_lng), new Vector3(landmark.Value.Item1, 0f, landmark.Value.Item2)) < 0.001) // 0.0001 degrees: within 11.1 metres. Phones are accurate to a few metres, so this threshold is acceptable.
                 {
                     _landmarkFoundScreen.gameObject.SetActive(true);
                     _landmarkFoundScreen.changeLandmarkName(landmark.Key); // make a ui element appear
@@ -258,6 +260,17 @@ using UnityEngine;
             _lightshipMap.SetActive(true);
             _mapCamera.SetActive(true);
         }
+
+        public void OnArModeVPSLocalisationPressed()
+        {
+            _arModeScreen.SetActive(false);
+
+            _XrOrigin.SetActive(false);
+            _ArSession.SetActive(false);
+            _compassUI.SetActive(false);
+
+            SceneManager.LoadScene("VPSLocalization");
+    }
 
         public void OnGameplayOpenGalleryPressed()
         {
