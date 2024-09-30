@@ -1202,7 +1202,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1277504490}
-  - {fileID: 1304877746}
   m_Father: {fileID: 1011308920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2582,7 +2581,7 @@ RectTransform:
   m_GameObject: {fileID: 263878933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.98712003, y: 0.98712003, z: 0.98712003}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1119376804}
@@ -2590,7 +2589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 135}
+  m_AnchoredPosition: {x: 0, y: 101}
   m_SizeDelta: {x: 258.3255, y: 82.0447}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &263878935
@@ -8235,7 +8234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Play!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47382c7fa89f14e778db36f61190547b, type: 2}
   m_sharedMaterial: {fileID: 4291245844200389477, guid: 47382c7fa89f14e778db36f61190547b,
@@ -10209,17 +10208,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304877745}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2024689723}
-  m_Father: {fileID: 106038314}
+  m_Father: {fileID: 1597955836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -99, y: 24.300049}
+  m_AnchoredPosition: {x: 1, y: 24.300049}
   m_SizeDelta: {x: 250, y: 82.0447}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1304877747
@@ -10268,7 +10267,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1011308921}
         m_TargetAssemblyTypeName: MapGameUIController, Niantic.Lightship.Maps.Samples.GameSample
-        m_MethodName: OnArModeVPSLocalisationPressed
+        m_MethodName: OnGameplayVPSLocalisationPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13540,6 +13539,7 @@ RectTransform:
   - {fileID: 1122167225}
   - {fileID: 2091346148}
   - {fileID: 2136862355}
+  - {fileID: 1304877746}
   m_Father: {fileID: 1011308920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14129,7 +14129,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1127562838}
   m_HandleRect: {fileID: 1127562837}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16268,7 +16268,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: VPS Localisation
+  m_text: Scan a Location
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47382c7fa89f14e778db36f61190547b, type: 2}
   m_sharedMaterial: {fileID: 4291245844200389477, guid: 47382c7fa89f14e778db36f61190547b,
@@ -17258,7 +17258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 24.300049}
+  m_AnchoredPosition: {x: 0, y: 91}
   m_SizeDelta: {x: 250, y: 82.0447}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2097766921
@@ -17330,7 +17330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
