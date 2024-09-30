@@ -287,5 +287,16 @@ public class MapGameUIController : MonoBehaviour
             _galleryScreen.SetActive(false);
             _gamePlayScreen.SetActive(true);
         }
+
+
+
+
+
+
+
+
+
+
+
 }
 //}

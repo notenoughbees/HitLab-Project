@@ -8,6 +8,7 @@ using Niantic.Lightship.AR.PersistentAnchors;
 using Niantic.Lightship.AR.Subsystems;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VPSLocalizeDemo : MonoBehaviour
@@ -115,7 +116,12 @@ public class VPSLocalizeDemo : MonoBehaviour
                 _meshDownloadStarted = true;
                 _ = DownloadAndPositionMeshAsync(location: args.ARLocation);
             }
-         }
+
+            // Go to the relevant minigame, depending on which location we're at.
+            // At the moment, we just have 1 minigame, so just activate that one.
+            SceneManager.LoadScene("MinigameOkeoverBridgeScene");
+
+        }
          else
          {
             if(_localizationStatusText != null){
