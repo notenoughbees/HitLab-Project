@@ -1811,6 +1811,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8305207905976707830, guid: 2985388ab93434d16858614507aaabb7,
+        type: 3}
+      propertyPath: _targetScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 1c6ca86493a854ed4a5f5ee7605f9991,
+        type: 3}
+    - target: {fileID: 8305207905976707830, guid: 2985388ab93434d16858614507aaabb7,
+        type: 3}
+      propertyPath: _targetSceneName
+      value: MapResourceGameSampleScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

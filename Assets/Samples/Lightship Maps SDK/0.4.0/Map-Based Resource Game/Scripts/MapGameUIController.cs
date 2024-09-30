@@ -107,6 +107,8 @@ public class MapGameUIController : MonoBehaviour
             // For GPS-based landmark finding (not VPS):
             // when the player gets near any of the locations, make a popup window
             // appear saying they found the landmark, then let them enter AR Mode.
+
+            // Disabling this feature to replace with VPS localisation feature!
             /*
             var gpsInfo = Input.location.lastData; // use Unity's GPS system
                 if (gpsInfo.timestamp > _lastGpsUpdateTime)
@@ -271,7 +273,7 @@ public class MapGameUIController : MonoBehaviour
 
         public void OnGameplayVPSLocalisationPressed()
         {
-            SceneManager.LoadScene("VPSLocalization");
+            SceneManager.LoadScene("VPSLocalizationScene");
         }
 
         public void OnGameplayOpenGalleryPressed()

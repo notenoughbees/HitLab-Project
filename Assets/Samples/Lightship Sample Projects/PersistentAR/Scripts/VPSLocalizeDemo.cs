@@ -100,7 +100,7 @@ public class VPSLocalizeDemo : MonoBehaviour
         _arLocationManager.StartTracking();
 
         _vpsCoverageTargetListManager.gameObject.SetActive(false);
-        _localizationStatusText.text = "NOT TRACKING";
+        _localizationStatusText.text = "Location not found yet: keep moving your device around...";
         _localizationStatusPanel.SetActive(true);
     }
 
@@ -108,7 +108,7 @@ public class VPSLocalizeDemo : MonoBehaviour
     {
          if (args.Tracking)
          {
-            _localizationStatusText.text = "TRACKING";
+            _localizationStatusText.text = "Location found!";
             _isTracking = true;
             if (!_meshDownloadStarted && _downloadMeshToggle.isOn)
             {
@@ -119,7 +119,7 @@ public class VPSLocalizeDemo : MonoBehaviour
          else
          {
             if(_localizationStatusText != null){
-                _localizationStatusText.text = "NOT TRACKING";
+                _localizationStatusText.text = "Location not found yet: keep moving your device around...";
             }
             
             _isTracking = false;

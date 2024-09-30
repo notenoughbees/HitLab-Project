@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Samples/Lightship Maps SDK/0.4.0/Map-Based Resource Game/MapResourceGameSampleScene.unity
     guid: 1c6ca86493a854ed4a5f5ee7605f9991
   - enabled: 1
-    path: Assets/Samples/Lightship Sample Projects/PersistentAR/Scenes/VPSLocalization.unity
+    path: Assets/Samples/Lightship Sample Projects/PersistentAR/Scenes/VPSLocalizationScene.unity
     guid: 4d27e438dba0e4b118ee8e3a35ce3fa6
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 16d0901f9a2cfff4cb30be51d03597ee,
