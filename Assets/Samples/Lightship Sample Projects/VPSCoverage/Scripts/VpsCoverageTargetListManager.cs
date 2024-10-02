@@ -60,6 +60,9 @@ public class VpsCoverageTargetListManager : MonoBehaviour
     [SerializeField]
     private CoverageClientManager _coverageClientManager;
 
+    [SerializeField]
+    private RawImage hintImage;
+
     public event Action<string> OnWayspotDefaultAnchorButtonPressed;
 
     private readonly List<VpsCoverageTargetListItem> _targetListItemInstances = new();
@@ -253,6 +256,8 @@ public class VpsCoverageTargetListManager : MonoBehaviour
         {
             OnWayspotDefaultAnchorButtonPressed?.Invoke(target.DefaultAnchor);
             GUIUtility.systemCopyBuffer = target.DefaultAnchor;
+
+            hintImage.gameObject.SetActive(true);
             SetCurrentTarget(target);
         });
     }

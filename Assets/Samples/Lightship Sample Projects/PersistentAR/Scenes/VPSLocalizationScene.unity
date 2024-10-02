@@ -1097,7 +1097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1179623306
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1592,6 +1592,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3624323127452898291, guid: 0aba5a004507a455cb9fcc7d34e544c1,
+        type: 3}
+      propertyPath: hintImage
+      value: 
+      objectReference: {fileID: 1179623308}
     - target: {fileID: 3624323127452898291, guid: 0aba5a004507a455cb9fcc7d34e544c1,
         type: 3}
       propertyPath: _requestButton
