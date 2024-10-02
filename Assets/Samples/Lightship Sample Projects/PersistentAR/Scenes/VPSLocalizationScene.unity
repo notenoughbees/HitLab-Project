@@ -1283,7 +1283,7 @@ MonoBehaviour:
   _localizationStatusPanel: {fileID: 114228738}
   _anchorMarkerPrefab: {fileID: 6683884011665911284, guid: a70ceac03fa0543f09075868f6102ba8,
     type: 3}
-  _downloadMeshToggle: {fileID: 416196769}
+  _downloadMeshToggle: {fileID: 0}
 --- !u!114 &1886981101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,6 +2006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _targetSceneName
       value: MapResourceGameSampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733325711567782131, guid: 2985388ab93434d16858614507aaabb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
