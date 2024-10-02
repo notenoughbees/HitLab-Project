@@ -100,10 +100,45 @@ public class VPSLocalizeDemo : MonoBehaviour
         _arLocationManager.SetARLocations(_arLocation);
         _arLocationManager.StartTracking();
 
+        // Fetch and display the selected location's hint image
+        //DisplayHintImage(defaultPayloadToSet);
+
         _vpsCoverageTargetListManager.gameObject.SetActive(false);
         _localizationStatusText.text = "Location not found yet: keep moving your device around...";
         _localizationStatusPanel.SetActive(true);
     }
+
+
+    //// New method to fetch and display the VPS image for the selected location
+    //private void DisplayHintImage(string payload)
+    //{
+    //    // Loop through the target list in the VpsCoverageTargetListManager to find the matching target
+    //    var target = _vpsCoverageTargetListManager.Targets.FirstOrDefault(t => t.PayloadId == payload);
+
+    //    _vpsCoverageTargetListManager.
+
+    //    if (target != null && !string.IsNullOrEmpty(target.ImageURL))
+    //    {
+    //        _vpsCoverageTargetListManager._coverageClientManager.TryGetImageFromUrl(
+    //            target.ImageURL,
+    //            downloadedImage =>
+    //            {
+    //                if (downloadedImage != null)
+    //                {
+    //                    _vpsImageDisplay.texture = downloadedImage;
+    //                }
+    //                else
+    //                {
+    //                    Debug.LogError("Failed to load VPS image for the selected location.");
+    //                }
+    //            });
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("No image available for the selected location.");
+    //    }
+    //}
+
 
     private void OnLocationTrackingStateChanged(ARLocationTrackedEventArgs args)
     {

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using Niantic.Lightship.AR;
 using Niantic.Lightship.AR.VpsCoverage;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,6 +65,9 @@ public class VpsCoverageTargetListManager : MonoBehaviour
     private readonly List<VpsCoverageTargetListItem> _targetListItemInstances = new();
     private GameObject _scrollListContent;
 
+    private LocalizationTarget _currentTarget;
+    public event Action<LocalizationTarget> OnCurrentTargetSet;
+
 
     /// <summary>
     /// Setup listeners and callbacks to Change UI and set updated values coverage API Manager.
@@ -115,10 +117,7 @@ public class VpsCoverageTargetListManager : MonoBehaviour
         if (areaTargetsResult.Status == ResponseStatus.Success)
         {
             responseText =
-                "Response : " + areaTargetsResult.AreaTargets.Count +
-                " targets(s) found within " + areaTargetsResult.QueryRadius +
-                "m of [" + areaTargetsResult.QueryLocation.Latitude +
-                ", " + areaTargetsResult.QueryLocation.Longitude + "]";
+                areaTargetsResult.AreaTargets.Count + " locations were found within " + areaTargetsResult.QueryRadius + "m:";
 
             areaTargetsResult.AreaTargets.Sort((a, b) =>
                 a.Area.Centroid.Distance(areaTargetsResult.QueryLocation).CompareTo(
@@ -254,8 +253,20 @@ public class VpsCoverageTargetListManager : MonoBehaviour
         {
             OnWayspotDefaultAnchorButtonPressed?.Invoke(target.DefaultAnchor);
             GUIUtility.systemCopyBuffer = target.DefaultAnchor;
+            SetCurrentTarget(target);
         });
     }
+
+
+    private void SetCurrentTarget(LocalizationTarget target)
+    {
+        Debug.Log("Setting _currentTarget");
+        _currentTarget = target;
+
+        // Invoke the event to notify listeners that the current target has been set
+        OnCurrentTargetSet?.Invoke(_currentTarget);
+    }
+
 
     private void OpenRouteInMapApp(LatLng from, LatLng to)
     {
@@ -310,5 +321,18 @@ public class VpsCoverageTargetListManager : MonoBehaviour
         {
             _useLocationToggle.onValueChanged.RemoveListener(OnUseLocationChanged);
         }
+    }
+
+
+
+
+    public CoverageClientManager GetCoverageClientManager()
+    {
+        return _coverageClientManager;
+    }
+
+    public LocalizationTarget GetCurrentTarget()
+    {
+        return _currentTarget;
     }
 }
