@@ -17,10 +17,33 @@ MonoBehaviour:
   prevReadme: {fileID: 0}
   nextReadme: {fileID: 0}
   sections:
+  - name: Header -Contributors
+    heading: Contributors
+    text: 'Niantic Lightship
+
+      Danielle Sim'
+    linkText: 
+    url: 
   - name: Header -Attributions
     heading: Attributions
-    text: <a href="https://www.flaticon.com/free-icons/picture" title="picture icons">Picture
-      icons created by msidiqf - Flaticon</a>
+    text: '<a href="https://www.flaticon.com/free-icons/picture" title="picture icons">Phone
+      icon created by msidiqf - Flaticon</a>
+
+
+      <a href="https://www.insectweek.org/art-and-photography/caddisfly-egg-mass-on-leaf-overhanging-water/"
+      title="Caddisfly Egg Mass on Leaf Overhanging Water">Caddisfly Egg Mass on
+      Leaf Overhanging Water photo by Danny Beath - Insect Week</a>
+
+
+      <a href="https://vecta.io/symbols/291/fauna-insects-arachnids/5/caddisfly-adult">Caddisfly
+      clipart created by IAN Symbols - vecta.io</a>
+
+
+      <a href="https://clipart-library.com/clipart/743481.htm">Spider
+      in web clipart created by Clipart Library - Clipart Library</a>
+
+
+'
     linkText: 
     url: 
   isRoot: 0
