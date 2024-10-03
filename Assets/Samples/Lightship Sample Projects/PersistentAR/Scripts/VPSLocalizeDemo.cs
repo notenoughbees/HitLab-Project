@@ -31,7 +31,7 @@ public class VPSLocalizeDemo : MonoBehaviour
     private GameObject _anchorMarkerPrefab;
     
     [SerializeField]
-    private Toggle _downloadMeshToggle; // left this field blank so the UI element doesnt appear on screen
+    private Toggle _downloadMeshToggle;
 
     //Holder object for the AR location payload.
     private GameObject _arLocationHolder;
@@ -120,6 +120,7 @@ public class VPSLocalizeDemo : MonoBehaviour
 
             // Go to the relevant minigame, depending on which location we're at.
             // At the moment, we just have 1 minigame, so just activate that one.
+            Debug.Log("Loading Scene: MinigameOkeoverBridgeScene...");
             SceneManager.LoadScene("MinigameOkeoverBridgeScene");
 
         }

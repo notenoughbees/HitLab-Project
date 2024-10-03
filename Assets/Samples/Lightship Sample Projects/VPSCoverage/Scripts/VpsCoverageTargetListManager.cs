@@ -255,7 +255,7 @@ public class VpsCoverageTargetListManager : MonoBehaviour
         coverageTargetListItem.SubscribeToCopyButton(() =>
         {
             OnWayspotDefaultAnchorButtonPressed?.Invoke(target.DefaultAnchor);
-            GUIUtility.systemCopyBuffer = target.DefaultAnchor;
+            //GUIUtility.systemCopyBuffer = target.DefaultAnchor; // copy to clipboard
 
             hintImage.gameObject.SetActive(true);
             SetCurrentTarget(target);

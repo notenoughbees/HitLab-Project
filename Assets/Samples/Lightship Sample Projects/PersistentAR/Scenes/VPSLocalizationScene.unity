@@ -1283,7 +1283,7 @@ MonoBehaviour:
   _localizationStatusPanel: {fileID: 114228738}
   _anchorMarkerPrefab: {fileID: 6683884011665911284, guid: a70ceac03fa0543f09075868f6102ba8,
     type: 3}
-  _downloadMeshToggle: {fileID: 0}
+  _downloadMeshToggle: {fileID: 416196769}
 --- !u!114 &1886981101
 MonoBehaviour:
   m_ObjectHideFlags: 0
