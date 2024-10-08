@@ -26,11 +26,16 @@ MonoBehaviour:
     url: 
   - name: Header -Attributions
     heading: Attributions
-    text: '<a href="https://www.flaticon.com/free-icons/picture" title="picture icons">Phone
-      icon created by msidiqf - Flaticon</a>
+    text: '<b>Icons</b>
+
+      <a href="https://www.flaticon.com/free-icons/picture"
+      title="picture icons">Phone icon created by msidiqf - Flaticon</a>
 
 
-      <a href="https://www.insectweek.org/art-and-photography/caddisfly-egg-mass-on-leaf-overhanging-water/"
+      <b>Sprites</b>
+
+      <a
+      href="https://www.insectweek.org/art-and-photography/caddisfly-egg-mass-on-leaf-overhanging-water/"
       title="Caddisfly Egg Mass on Leaf Overhanging Water">Caddisfly Egg Mass on
       Leaf Overhanging Water photo by Danny Beath - Insect Week</a>
 
@@ -42,6 +47,19 @@ MonoBehaviour:
       <a href="https://clipart-library.com/clipart/743481.htm">Spider
       in web clipart created by Clipart Library - Clipart Library</a>
 
+
+      <b>Audio</b>
+
+      <a
+      href="https://freesound.org/people/ShannonAHoniball/sounds/362997/">Alien egg
+      hatching</a> by <a href="https://freesound.org/people/ShannonAHoniball/">ShannonAHoniball</a>
+      | License: <a href="http://creativecommons.org/licenses/by-nc/3.0/">Attribution
+      NonCommercial 3.0</a>
+
+
+      <a href="https://freesound.org/people/zimbot/sounds/244494/">Squish.wav</a>
+      by <a href="https://freesound.org/people/zimbot/">zimbot</a> | License: <a
+      href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</a>
 
 '
     linkText: 

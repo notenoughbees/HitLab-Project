@@ -274,6 +274,7 @@ public class MapGameUIController : MonoBehaviour
         public void OnGameplayVPSLocalisationPressed()
         {
             SceneManager.LoadScene("VPSLocalizationScene");
+            //SceneManager.LoadScene("PlaybackRecordingScene");
         }
 
         public void OnGameplayOpenGalleryPressed()
