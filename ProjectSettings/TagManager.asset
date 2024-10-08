@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Egg
   - Spider
+  - Caddisfly
   layers:
   - Default
   - TransparentFX

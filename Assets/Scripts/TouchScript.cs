@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TouchScript : MonoBehaviour
 {
-    //public Sprite caddisfly;
     public GameObject caddisfly; // a prefab, not a sprite
 
     public AudioSource egg_hatch_sound;
@@ -25,43 +24,40 @@ public class TouchScript : MonoBehaviour
             RaycastHit hit;
             Debug.DrawRay(ray.origin, ray.direction * 200, Color.yellow, 100f);
 
-            //Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            //RaycastHit2D hit2D = Physics2D.Raycast(touchPos, Vector2.zero);
-
             if (Physics.Raycast(ray, out hit))
-            //if(hit2D.collider != null)
             {
                 Debug.Log("name: " + hit.collider.name);
 
-                // if we touched an egg sprite, delete it, play a sound, & replace it with a caddisfly sprite
-                if (hit.collider != null && hit.collider.tag == "Egg")
+                GameObject sprite;
+                switch (hit.collider.tag)
                 {
-                    Debug.Log("touched an egg");
-                    GameObject sprite = hit.transform.gameObject;
-                    Destroy(sprite);
-                    //Destroy(hit2D.collider.gameObject);
+                    // if we touched an egg sprite, delete it, play a sound, & replace it with a caddisfly sprite
+                    case "Egg":
+                        Debug.Log("touched an egg");
+                        sprite = hit.transform.gameObject;
+                        Destroy(sprite);
 
-                    Debug.Log("*egg hatching sound*");
-                    //AudioSource audio = GetComponent<AudioSource>();
-                    //audio.Play(); // egg hatch sound
-                    egg_hatch_sound.Play();
+                        Debug.Log("*egg hatching sound*");
+                        egg_hatch_sound.Play();
 
-                    //Touch myTouch = Input.GetTouch(0);
-                    Vector3 eggPos = hit.collider.transform.position;
-                    SpawnCaddisfly(eggPos);
-                }
-                // if we touched a spider, delete it & play a sound
-                else if (hit.collider != null && hit.collider.tag == "Spider")
-                {
-                    Debug.Log("touched a spider");
-                    GameObject sprite = hit.transform.gameObject;
-                    Destroy(sprite);
-                    Debug.Log("*spider die sound*");
-                    spider_squish_sound.Play();
-                }
-                else
-                {
-                    Debug.Log("touched something else");
+                        //Touch myTouch = Input.GetTouch(0);
+                        Vector3 eggPos = hit.collider.transform.position;
+                        Debug.Log("eggPos: " + eggPos.ToString());
+                        SpawnCaddisfly(eggPos);
+                        break;
+
+                    // if we touched a spider, delete it & play a sound
+                    case "Spider":
+                        Debug.Log("touched a spider");
+                        sprite = hit.transform.gameObject;
+                        Destroy(sprite);
+                        Debug.Log("*spider die sound*");
+                        spider_squish_sound.Play();
+                        break;
+
+                    default:
+                        Debug.Log("touched something else");
+                        break;
                 }
             }
             else
@@ -75,6 +71,7 @@ public class TouchScript : MonoBehaviour
     {
         Debug.Log("spawning a caddisfly...");
         //Vector3 objPos = Camera.main.ScreenToWorldPoint(touch.position);
+
         Debug.Log("objPos: " + objPos);
         objPos.z = 1; // make the obj appear in front of everything else
         Debug.Log("caddisfly: " + caddisfly.ToString());
