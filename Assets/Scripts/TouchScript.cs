@@ -6,8 +6,8 @@ public class TouchScript : MonoBehaviour
 {
     public GameObject caddisfly; // a prefab, not a sprite
 
-    public AudioSource egg_hatch_sound;
-    public AudioSource spider_squish_sound;
+    public AudioSource eggHatchSound;
+    public AudioSource spiderSquishSound;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class TouchScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("name: " + hit.collider.name);
+                //Debug.Log("name: " + hit.collider.name);
 
                 GameObject sprite;
                 switch (hit.collider.tag)
@@ -37,8 +37,7 @@ public class TouchScript : MonoBehaviour
                         sprite = hit.transform.gameObject;
                         Destroy(sprite);
 
-                        Debug.Log("*egg hatching sound*");
-                        egg_hatch_sound.Play();
+                        eggHatchSound.Play();
 
                         //Touch myTouch = Input.GetTouch(0);
                         Vector3 eggPos = hit.collider.transform.position;
@@ -51,8 +50,8 @@ public class TouchScript : MonoBehaviour
                         Debug.Log("touched a spider");
                         sprite = hit.transform.gameObject;
                         Destroy(sprite);
-                        Debug.Log("*spider die sound*");
-                        spider_squish_sound.Play();
+
+                        spiderSquishSound.Play();
                         break;
 
                     default:
@@ -73,7 +72,6 @@ public class TouchScript : MonoBehaviour
         //Vector3 objPos = Camera.main.ScreenToWorldPoint(touch.position);
 
         Debug.Log("objPos: " + objPos);
-        objPos.z = 1; // make the obj appear in front of everything else
         Debug.Log("caddisfly: " + caddisfly.ToString());
         Instantiate(caddisfly, objPos, Quaternion.identity);
     }
