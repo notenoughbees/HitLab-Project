@@ -4,20 +4,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaddisflyMovement : MonoBehaviour
+public class CaddisflyBehaviour : MonoBehaviour
 {
-    private Vector3 hatchPosition;
+    public GameObject eggPrefab;
 
-    const float maxDist = 5;
-    const float speed = 0.8f;
-    const float interval = 4;
-    Vector3 targetPosition;
+    private Vector3 hatchPosition;
+    private const float maxDist = 5;
+    private const float speed = 0.8f;
+    private const float interval = 4;
+    private Vector3 targetPosition;
+    private GameObject[] eggLayingAreas;
 
     // Start is called before the first frame update
     void Start()
     {
         SetNewTargetPosition();
         StartCoroutine(ChangeTargetPosition());
+
+        eggLayingAreas = GameObject.FindGameObjectsWithTag("EggLayingArea");
+        StartCoroutine(LayEggs());
     }
 
     // Update is called once per frame
@@ -59,6 +64,45 @@ public class CaddisflyMovement : MonoBehaviour
             SetNewTargetPosition();
         }
     }
+
+
+
+    IEnumerator LayEggs()
+    {
+        // Wait an initial period of 20-30s before starting to lay eggs
+        yield return new WaitForSeconds(Random.Range(20, 30));
+
+        // Continously lay eggs every 30-40s
+        while (true)
+        {
+            LayEgg();
+
+            yield return new WaitForSeconds(Random.Range(30, 40));
+        }
+    }
+
+
+    void LayEgg()
+    {
+        Debug.Log("Starting egg-laying process...");
+
+        // pick an egg-laying area to go to
+        GameObject eggLayingArea = eggLayingAreas[Random.Range(0, eggLayingAreas.Length)];
+
+        // pick a point on that area to lay te eggs at
+        Bounds bounds = eggLayingArea.GetComponent<Renderer>().bounds;
+        Vector3 eggLayingPos = new Vector3(
+            Random.Range(bounds.min.x, bounds.max.x),
+            eggLayingArea.transform.position.y,
+            Random.Range(bounds.min.z, bounds.max.z)
+        );
+
+        // lay the eggs
+        transform.position = Vector3.MoveTowards(transform.position, eggLayingPos, speed * Time.deltaTime);
+        Debug.Log("Laying an egg at " + eggLayingPos + "...");
+        Instantiate(eggPrefab, eggLayingPos, Quaternion.identity);
+    }
+
 
 
     public void SetHatchPosition(Vector3 pos)

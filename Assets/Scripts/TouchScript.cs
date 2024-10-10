@@ -39,7 +39,6 @@ public class TouchScript : MonoBehaviour
 
                         eggHatchSound.Play();
 
-                        //Touch myTouch = Input.GetTouch(0);
                         Vector3 eggPos = hit.collider.transform.position;
                         Debug.Log("eggPos: " + eggPos.ToString());
                         SpawnCaddisfly(eggPos);
@@ -69,11 +68,10 @@ public class TouchScript : MonoBehaviour
     private void SpawnCaddisfly(Vector3 objPos)
     {
         Debug.Log("spawning a caddisfly at " + objPos + "...");
-        //Vector3 objPos = Camera.main.ScreenToWorldPoint(touch.position);
         GameObject newCaddisfly = Instantiate(caddisflyPrefab, objPos, Quaternion.identity);
 
         // set the fly's hatching position because the fly will centre around here when it flies around
-        CaddisflyMovement moveScript = newCaddisfly.GetComponent<CaddisflyMovement>();
+        CaddisflyBehaviour moveScript = newCaddisfly.GetComponent<CaddisflyBehaviour>();
         moveScript.SetHatchPosition(objPos);
     }
 }

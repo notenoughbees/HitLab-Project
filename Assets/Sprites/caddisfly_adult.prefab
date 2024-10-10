@@ -107,6 +107,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9009822426297199330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20bed5540831644dbdf54360a3cab51, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e944d60c459c4b4cb8c27db1dc098c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eggPrefab: {fileID: 4074420069225349794, guid: 6b4503f778fe4c0438560680b42214e8,
+    type: 3}

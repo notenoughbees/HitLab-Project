@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ZzzLog : MonoBehaviour
+public class DebugLog : MonoBehaviour
 {
     uint qsize = 50;  // number of messages to keep
     Queue myLogQueue = new Queue();

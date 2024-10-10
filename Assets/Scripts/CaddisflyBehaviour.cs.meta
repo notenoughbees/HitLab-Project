@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: a20bed5540831644dbdf54360a3cab51
+guid: 4e944d60c459c4b4cb8c27db1dc098c8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - eggPrefab: {fileID: 4074420069225349794, guid: 6b4503f778fe4c0438560680b42214e8,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiderMovement : MonoBehaviour
+public class SpiderBehaviour : MonoBehaviour
 {
     public float spiderSpeed = 0.1f;
     public AudioSource caddisflyDieSound;
