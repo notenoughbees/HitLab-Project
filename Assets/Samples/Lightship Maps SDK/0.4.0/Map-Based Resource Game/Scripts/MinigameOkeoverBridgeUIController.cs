@@ -34,13 +34,10 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
         [SerializeField]
         private GameObject _ArSession;
 
-        [SerializeField]
-        private TMP_Text _errorText;
+        private ScoreManager scoreManager;
 
-
-        private bool _hasPlayerWon;
-
-        private double _lastGpsUpdateTime;
+        public float timeLeft = 180f;
+        public TMP_Text timerValue;
 
         private void Start()
         {
@@ -48,11 +45,21 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
             _gamePlayScreen.SetActive(false);
             _gameOverScreen.SetActive(false);
 
+            scoreManager = FindObjectOfType<ScoreManager>();
+            scoreManager.Score = PlayerPrefs.GetInt("Score", 0);
         }
 
         private void Update()
         {
+            // https://www.techwithsach.com/post/how-to-add-a-simple-countdown-timer-in-unity
+            timeLeft -= Time.deltaTime;
+            timerValue.text = timeLeft.ToString("0");
+            if (timeLeft <= 0)
+            {
+                _gamePlayScreen.SetActive(false);
+                _gameOverScreen.SetActive(true);
 
+        }
 
 
 

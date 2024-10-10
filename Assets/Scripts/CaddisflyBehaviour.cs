@@ -89,6 +89,8 @@ public class CaddisflyBehaviour : MonoBehaviour
         // pick an egg-laying area to go to
         GameObject eggLayingArea = eggLayingAreas[Random.Range(0, eggLayingAreas.Length)];
 
+        //TODO: need to pick a point across all of the planes, NOT randomly pick a plane and then randomly pick a point, since that results in many eggs on small planes & few eggs on large planes.
+
         // pick a point on that area to lay te eggs at
         Bounds bounds = eggLayingArea.GetComponent<Renderer>().bounds;
         Vector3 eggLayingPos = new Vector3(
