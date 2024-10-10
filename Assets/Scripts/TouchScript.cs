@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TouchScript : MonoBehaviour
 {
-    public GameObject caddisfly; // a prefab, not a sprite
+    public GameObject caddisflyPrefab; // a prefab, not a sprite
 
     public AudioSource eggHatchSound;
     public AudioSource spiderSquishSound;
@@ -68,11 +68,12 @@ public class TouchScript : MonoBehaviour
 
     private void SpawnCaddisfly(Vector3 objPos)
     {
-        Debug.Log("spawning a caddisfly...");
+        Debug.Log("spawning a caddisfly at " + objPos + "...");
         //Vector3 objPos = Camera.main.ScreenToWorldPoint(touch.position);
+        GameObject newCaddisfly = Instantiate(caddisflyPrefab, objPos, Quaternion.identity);
 
-        Debug.Log("objPos: " + objPos);
-        Debug.Log("caddisfly: " + caddisfly.ToString());
-        Instantiate(caddisfly, objPos, Quaternion.identity);
+        // set the fly's hatching position because the fly will centre around here when it flies around
+        CaddisflyMovement moveScript = newCaddisfly.GetComponent<CaddisflyMovement>();
+        moveScript.SetHatchPosition(objPos);
     }
 }

@@ -13,7 +13,7 @@ public class SpiderMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        caddisflies = GameObject.FindGameObjectsWithTag("Caddisfly");
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class SpiderMovement : MonoBehaviour
         if(target != null) // spider doesn't move until it has a target. TODO: update this so that the spider doesn't appear until there are caddisflies, then it moves immeaditely towards one
         {
             // https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html
-            Debug.Log("[SPIDER] moving towards " + target.ToString());
+            //Debug.Log("[SPIDER] moving towards " + target.ToString());
             var step = spiderSpeed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
@@ -42,10 +42,12 @@ public class SpiderMovement : MonoBehaviour
 
     void FindTarget()
     {
-        if(target == null)
+        // if the spider has no target and there is at least 1 fly to target...
+        if(target == null && caddisflies.Length != 0)
         {
+            Debug.Log("caddisflies string; length: " + caddisflies.ToString() + "; " + caddisflies.Length);
             target = caddisflies[Random.Range(0, caddisflies.Length)];
-            Debug.Log("[SPIDER] target found");
+            Debug.Log("[SPIDER] target found: " + target);
         }
     }
 }
