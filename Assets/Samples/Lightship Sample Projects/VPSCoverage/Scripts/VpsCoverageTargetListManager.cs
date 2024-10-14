@@ -36,26 +36,8 @@ public class VpsCoverageTargetListManager : MonoBehaviour
     [SerializeField] [Tooltip("Text to display request status")]
     private Text _requestStatusText;
 
-    [SerializeField] [Tooltip("Slider GameObject to set query radius")]
-    private Slider _queryRadiusSlider;
-
-    [SerializeField] [Tooltip("Text to display current slider value")]
-    private Text _queryRadiusText;
-
-    [SerializeField] [Tooltip("Toggle GameObject to set location usage")]
-    private SliderToggle _useLocationToggle;
-
-    [SerializeField] [Tooltip("Text to display current toggle value")]
-    private Text _useLocationText;
-
     [SerializeField] [Tooltip("Longitude Latitude canvas renderers")]
     private CanvasRenderer[] _longlatCanvasRenderers;
-
-    [SerializeField] [Tooltip("Input field to hold custom longitude")]
-    private InputField _latitudeTextField;
-
-    [SerializeField] [Tooltip("Input field to hold custom latitude")]
-    private InputField _longitudeTextField;
 
     [SerializeField]
     private CoverageClientManager _coverageClientManager;
@@ -84,21 +66,8 @@ public class VpsCoverageTargetListManager : MonoBehaviour
 #elif !UNITY_EDITOR && UNITY_IOS
         _mapApp = MapApp.AppleMaps;
 #endif
-        _queryRadiusSlider.value = _coverageClientManager.QueryRadius;
-        _queryRadiusSlider.onValueChanged.AddListener(OnRadiusChanged);
-        OnRadiusChanged(_queryRadiusSlider.value);
 
-        _latitudeTextField.text = _coverageClientManager.QueryLatitude.ToString(CultureInfo.CurrentCulture);
-        _latitudeTextField.onValueChanged.AddListener(OnLatitudeChanged);
-        OnLatitudeChanged(_coverageClientManager.QueryLatitude.ToString(CultureInfo.CurrentCulture));
 
-        _longitudeTextField.text = _coverageClientManager.QueryLongitude.ToString(CultureInfo.CurrentCulture);
-        _longitudeTextField.onValueChanged.AddListener(OnLongitudeChanged);
-        OnLongitudeChanged(_coverageClientManager.QueryLongitude.ToString(CultureInfo.CurrentCulture));
-
-        _useLocationToggle.isOn = _coverageClientManager.UseCurrentLocation;
-        _useLocationToggle.onValueChanged.AddListener(OnUseLocationChanged);
-        OnUseLocationChanged(_coverageClientManager.UseCurrentLocation);
     }
 
     public void RequestAreas()
@@ -160,51 +129,6 @@ public class VpsCoverageTargetListManager : MonoBehaviour
 
         _requestStatusText.text = responseText;
         _requestButton.enabled = true;
-    }
-
-    private void OnLatitudeChanged(string newLatitude)
-    {
-        if (!float.TryParse(_latitudeTextField.text, out float latValue))
-        {
-            _coverageClientManager.QueryLatitude = 0;
-        }
-        else
-        {
-            _coverageClientManager.QueryLatitude = latValue;
-        }
-    }
-
-    private void OnLongitudeChanged(string newLongitude)
-    {
-        if (!float.TryParse(_longitudeTextField.text, out float longValue))
-        {
-            _coverageClientManager.QueryLongitude = 0;
-        }
-        else
-        {
-            _coverageClientManager.QueryLongitude = longValue;
-        }
-    }
-
-    private void OnRadiusChanged(float newRadius)
-    {
-        var newRadiusAsInt = (int)newRadius;
-        _queryRadiusText.text = $"Query Radius : {newRadiusAsInt}";
-        _coverageClientManager.QueryRadius = newRadiusAsInt;
-    }
-
-    private void OnUseLocationChanged(bool isUsingCurrentLocation)
-    {
-        _useLocationText.text = "Use current location";
-
-        _latitudeTextField.enabled = !isUsingCurrentLocation;
-        _longitudeTextField.enabled = !isUsingCurrentLocation;
-        foreach (var canvasRenderer in _longlatCanvasRenderers)
-        {
-            canvasRenderer.SetAlpha(isUsingCurrentLocation ? .5f : 1f);
-        }
-
-        _coverageClientManager.UseCurrentLocation = isUsingCurrentLocation;
     }
 
     private void ClearListContent()
@@ -307,25 +231,7 @@ public class VpsCoverageTargetListManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_queryRadiusSlider)
-        {
-            _queryRadiusSlider.onValueChanged.RemoveListener(OnRadiusChanged);
-        }
 
-        if (_latitudeTextField)
-        {
-            _latitudeTextField.onValueChanged.RemoveListener(OnLatitudeChanged);
-        }
-
-        if (_longitudeTextField)
-        {
-            _longitudeTextField.onValueChanged.RemoveListener(OnLongitudeChanged);
-        }
-
-        if (_useLocationToggle)
-        {
-            _useLocationToggle.onValueChanged.RemoveListener(OnUseLocationChanged);
-        }
     }
 
 
