@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 // Based on tutorial: https://www.youtube.com/watch?v=z5CdXvbTQ2Q
-public class ScoreCounter1 : MonoBehaviour
+public class ScoreCounter : MonoBehaviour
 {
     private TMP_Text scoreCounterText;
     public int scoreValue;

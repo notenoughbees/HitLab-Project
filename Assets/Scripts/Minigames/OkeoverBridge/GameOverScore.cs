@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MinigameBridgeGameOverScore : MonoBehaviour
+public class GameOverScore : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text eggScoreText;
