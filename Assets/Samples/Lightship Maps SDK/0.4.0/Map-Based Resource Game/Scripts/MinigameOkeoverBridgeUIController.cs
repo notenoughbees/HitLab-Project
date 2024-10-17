@@ -113,12 +113,16 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
 
 
 
+        public void OnGameOverReplayPressed()
+        {
+            _gameOverScreen.SetActive(false);
+            _gamePlayScreen.SetActive(true);
+        }
 
 
         public void OnGameOverContinuePressed()
         {
-            _gameOverScreen.SetActive(false);
-            _gamePlayScreen.SetActive(true);
+            SceneManager.LoadScene("MapResourceGameSampleScene");
         }
 
 

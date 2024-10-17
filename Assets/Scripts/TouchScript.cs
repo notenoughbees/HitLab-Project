@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchScript : MonoBehaviour
 {
+    public static event Action CaddisflyCountIncreased = delegate { };
+
     public GameObject caddisflyPrefab; // a prefab, not a sprite
 
     public AudioSource eggHatchSound;
@@ -12,7 +15,7 @@ public class TouchScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("TouchScript START");
     }
 
     // Update is called once per frame
@@ -42,6 +45,8 @@ public class TouchScript : MonoBehaviour
                         Vector3 eggPos = hit.collider.transform.position;
                         Debug.Log("eggPos: " + eggPos.ToString());
                         SpawnCaddisfly(eggPos);
+
+                        CaddisflyCountIncreased?.Invoke(); // trigger the "egg touched" event
                         break;
 
                     // if we touched a spider, delete it & play a sound
