@@ -341,8 +341,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 342397405}
-        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Niantic.Lightship.Maps.Samples.GameSample
+      - m_Target: {fileID: 342397406}
+        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Assembly-CSharp
         m_MethodName: OnGameOverReplayPressed
         m_Mode: 1
         m_Arguments:
@@ -1686,6 +1686,7 @@ GameObject:
   - component: {fileID: 342397402}
   - component: {fileID: 342397401}
   - component: {fileID: 342397405}
+  - component: {fileID: 342397406}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1787,7 +1788,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342397399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72f20c7afb3041b4298526aa326acab9, type: 3}
   m_Name: 
@@ -1797,7 +1798,27 @@ MonoBehaviour:
   _gameOverScreen: {fileID: 1789668217}
   _XrOrigin: {fileID: 1074607858}
   _ArSession: {fileID: 1054912915}
+  isPlayingGame: 0
   timeLeft: 180
+  timerValue: {fileID: 147326897}
+--- !u!114 &342397406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342397399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950b2a6270e39a24a86f3f123482d1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _introScreen: {fileID: 1690622668}
+  _gamePlayScreen: {fileID: 1974585358}
+  _gameOverScreen: {fileID: 1789668217}
+  _XrOrigin: {fileID: 1074607858}
+  _ArSession: {fileID: 1054912915}
+  timeLeft: 18
   timerValue: {fileID: 147326897}
 --- !u!1 &345488666
 GameObject:
@@ -3266,8 +3287,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 342397405}
-        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Niantic.Lightship.Maps.Samples.GameSample
+      - m_Target: {fileID: 342397406}
+        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Assembly-CSharp
         m_MethodName: OnGameOverContinuePressed
         m_Mode: 1
         m_Arguments:
@@ -5984,7 +6005,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0c5618da5a0ce3c46a8a2ba047f0282e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6080,7 +6101,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4c883b00a3b8504a969a5f62d19f368, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6353,8 +6374,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 342397405}
-        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Niantic.Lightship.Maps.Samples.GameSample
+      - m_Target: {fileID: 342397406}
+        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Assembly-CSharp
         m_MethodName: OnGameplayBackToMapPressed
         m_Mode: 1
         m_Arguments:
@@ -7980,8 +8001,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 342397405}
-        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Niantic.Lightship.Maps.Samples.GameSample
+      - m_Target: {fileID: 342397406}
+        m_TargetAssemblyTypeName: MinigameOkeoverBridgeUIController, Assembly-CSharp
         m_MethodName: OnIntroContinuePressed
         m_Mode: 1
         m_Arguments:
