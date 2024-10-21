@@ -12,13 +12,11 @@ public class TouchScript : MonoBehaviour
     public AudioSource eggHatchSound;
     public AudioSource spiderSquishSound;
 
-    // Start is called before the first frame update
     void Start()
     {
         Debug.Log("TouchScript START");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -46,7 +44,7 @@ public class TouchScript : MonoBehaviour
                         Debug.Log("eggPos: " + eggPos.ToString());
                         SpawnCaddisfly(eggPos);
 
-                        CaddisflyCountIncreased?.Invoke(); // trigger the "egg touched" event
+                        CaddisflyCountIncreased?.Invoke(); // trigger the event
                         break;
 
                     // if we touched a spider, delete it & play a sound

@@ -20,9 +20,6 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
         private GameObject _introScreen;
 
         [SerializeField]
-        private GameObject _errorScreen;
-
-        [SerializeField]
         private GameObject _gamePlayScreen;
 
         [SerializeField]
@@ -34,8 +31,6 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
         [SerializeField]
         private GameObject _ArSession;
 
-        private ScoreManager scoreManager;
-
         public float timeLeft = 180f;
         public TMP_Text timerValue;
 
@@ -44,9 +39,6 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
             _introScreen.SetActive(true);
             _gamePlayScreen.SetActive(false);
             _gameOverScreen.SetActive(false);
-
-            scoreManager = FindObjectOfType<ScoreManager>();
-            scoreManager.Score = PlayerPrefs.GetInt("Score", 0);
         }
 
         private void Update()

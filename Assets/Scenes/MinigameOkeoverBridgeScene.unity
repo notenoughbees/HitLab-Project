@@ -1793,7 +1793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _introScreen: {fileID: 1690622668}
-  _errorScreen: {fileID: 0}
   _gamePlayScreen: {fileID: 1974585358}
   _gameOverScreen: {fileID: 1789668217}
   _XrOrigin: {fileID: 1074607858}
@@ -7508,6 +7507,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1936679955}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1938203301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.95718884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3936076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683781937583431940, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009822426297199330, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_Name
+      value: Caddisfly Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009822426297199330, guid: 08bd14f0b94b25f4c80fb56cf618f107,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08bd14f0b94b25f4c80fb56cf618f107, type: 3}
 --- !u!1 &1974585358
 GameObject:
   m_ObjectHideFlags: 0
@@ -8111,3 +8183,4 @@ SceneRoots:
   - {fileID: 1074607862}
   - {fileID: 135644570}
   - {fileID: 54434828}
+  - {fileID: 1938203301}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DebugLog : MonoBehaviour
 {
-    uint qsize = 50;  // number of messages to keep
+    uint qsize = 100;  // number of messages to keep
     Queue myLogQueue = new Queue();
 
     void Start()
@@ -32,7 +32,7 @@ public class DebugLog : MonoBehaviour
 
     void OnGUI()
     {
-        GUILayout.BeginArea(new Rect(Screen.width - 600, 0, 600, Screen.height));
+        GUILayout.BeginArea(new Rect(Screen.width / 2, 0, Screen.width / 2, Screen.height));
         GUILayout.Label("\n" + string.Join("\n", myLogQueue.ToArray()));
         GUILayout.EndArea();
     }

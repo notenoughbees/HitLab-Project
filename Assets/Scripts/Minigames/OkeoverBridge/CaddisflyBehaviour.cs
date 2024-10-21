@@ -18,9 +18,10 @@ public class CaddisflyBehaviour : MonoBehaviour
     private Vector3 targetPosition;
     private GameObject[] eggLayingAreas;
 
-    // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("CaddisflyBehaviour START");
+
         SetNewTargetPosition();
         StartCoroutine(ChangeTargetPosition());
 
@@ -28,7 +29,6 @@ public class CaddisflyBehaviour : MonoBehaviour
         StartCoroutine(LayEggs());
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveAround();
@@ -87,8 +87,6 @@ public class CaddisflyBehaviour : MonoBehaviour
 
     void LayEgg()
     {
-        Debug.Log("Starting egg-laying process...");
-
         // pick an egg-laying area to go to
         GameObject eggLayingArea = eggLayingAreas[UnityEngine.Random.Range(0, eggLayingAreas.Length)];
 

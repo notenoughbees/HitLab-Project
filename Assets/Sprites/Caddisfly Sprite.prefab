@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2754493417121718691}
   - component: {fileID: -1365705764940045781}
   m_Layer: 0
-  m_Name: caddisfly_adult
+  m_Name: Caddisfly Sprite
   m_TagString: Caddisfly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
