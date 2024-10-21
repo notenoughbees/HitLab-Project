@@ -2,11 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using HitLabGame;
 
-//namespace HitLabGame
-//{
-    public class TouchScript : MonoBehaviour
+public class TouchScript : MonoBehaviour
     {
         public static event Action CaddisflyCountIncreased = delegate { };
 
@@ -21,12 +18,7 @@ using UnityEngine;
         void Start()
         {
             Debug.Log("TouchScript START");
-
-            //isPlayingGame = MinigameOkeoverBridgeUIController.
-
             uiScript = FindObjectOfType<MinigameOkeoverBridgeUIController>();
-            //isPlayingGame = uiScript.isPlayingGame;
-            //Debug.Log("[TS] isPlayingGame: " + isPlayingGame);
         }
 
         void Update()
@@ -34,7 +26,6 @@ using UnityEngine;
             Debug.Log("uiScript.isPlayingGame: " + uiScript.isPlayingGame);
             if (uiScript.isPlayingGame && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                Debug.Log("TRUE");
                 Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
                 RaycastHit hit;
                 Debug.DrawRay(ray.origin, ray.direction * 200, Color.yellow, 100f);
@@ -92,5 +83,4 @@ using UnityEngine;
             moveScript.SetHatchPosition(objPos);
         }
     }
-//}
 

@@ -1,12 +1,4 @@
-﻿//namespace HitLabGame
-//{
-//    internal class MinigameOkeoverBridgeUIController
-//    {
-//        public bool isPlayingGame { get; internal set; }
-//    }
-//}
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 //using Niantic.Lightship.Maps.SampleAssets.Player;
 //using Niantic.Lightship.Maps.Samples.GameSample;
@@ -14,20 +6,13 @@ using Niantic.Lightship.Maps;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using HitLabGame;
 
-//namespace HitLabGame
-//{
-    //namespace Niantic.Lightship.Maps.Samples.GameSample
-    //{
-    /// <summary>
-    /// UI controller for the Okeover Bridge minigame.
-    /// </summary>
-    public class MinigameOkeoverBridgeUIController : MonoBehaviour
+
+/// <summary>
+/// UI controller for the Okeover Bridge minigame.
+/// </summary>
+public class MinigameOkeoverBridgeUIController : MonoBehaviour
     {
-        //[SerializeField]
-        //private GameObject touchScript;
-
         [SerializeField]
         private GameObject _introScreen;
 
@@ -44,7 +29,6 @@ using UnityEngine.SceneManagement;
         private GameObject _ArSession;
 
         public bool isPlayingGame { get; internal set; } = false;
-        //public bool isPlayingGame = false;
         public float timeLeft = 18f;
         public TMP_Text timerValue;
 
@@ -70,15 +54,6 @@ using UnityEngine.SceneManagement;
                 isPlayingGame = false;
                 _gamePlayScreen.SetActive(false);
                 _gameOverScreen.SetActive(true);
-                //var camera = GetComponent<Camera>();
-                //GameObject camera = GameObject.FindGameObjectsWithTag("MainCamera")[0]; // there should only be 1 camera
-                //TouchScript script = camera.GetComponent <TouchScript>();
-                //Destroy(camera.FindObjectOfType(Script
-                //Destroy(touchScript);
-
-                //GameObject camera = Camera.main.gameObject;
-                //Destroy(camera.GetComponent("TouchScript"));
-                //Debug.Log("Destroyed touchScript!");
             }
 
 
@@ -135,7 +110,3 @@ using UnityEngine.SceneManagement;
 
 
     }
-    //}
-//}
-
-
