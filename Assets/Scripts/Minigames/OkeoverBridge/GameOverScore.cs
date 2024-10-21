@@ -12,6 +12,9 @@ public class GameOverScore : MonoBehaviour
 
     public void Start()
     {
-        scoreText.text = (eggScoreText.text.ToIntArray()[0] + flyScoreText.text.ToIntArray()[0]).ToString();
+        Debug.Log("egg score: " + eggScoreText.text);
+        Debug.Log("fly score: " + flyScoreText.text);
+        scoreText.text = (int.Parse(eggScoreText.text) + int.Parse(flyScoreText.text)).ToString();
+        Debug.Log("FINAL SCORE: " + scoreText.text);
     }
 }

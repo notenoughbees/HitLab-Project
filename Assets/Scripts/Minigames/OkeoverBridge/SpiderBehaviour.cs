@@ -7,7 +7,7 @@ public class SpiderBehaviour : MonoBehaviour
 {
     public static event Action CaddisflyCountDecreased = delegate { };
 
-    public float spiderSpeed = 2f; //temporarily make faster for testing the "decrement fly count" event
+    public float spiderSpeed = 10f; //temporarily make faster for testing
     public AudioSource caddisflyDieSound;
 
     private GameObject[] caddisflies;
