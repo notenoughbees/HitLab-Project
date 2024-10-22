@@ -29,7 +29,7 @@ public class MinigameOkeoverBridgeUIController : MonoBehaviour
         private GameObject _ArSession;
 
         public bool isPlayingGame { get; internal set; } = false;
-        public float timeLeft = 18f;
+        public float timeLeft = 180f;
         public TMP_Text timerValue;
 
         private void Start()

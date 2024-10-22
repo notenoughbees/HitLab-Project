@@ -7,9 +7,7 @@ public class TouchScript : MonoBehaviour
     {
         public static event Action CaddisflyCountIncreased = delegate { };
 
-        //[SerializeField] private MinigameOkeoverBridgeUIController uiScript;
         private MinigameOkeoverBridgeUIController uiScript;
-        bool isPlayingGame;
 
         public GameObject caddisflyPrefab; // a prefab, not a sprite
         public AudioSource eggHatchSound;
@@ -19,11 +17,13 @@ public class TouchScript : MonoBehaviour
         {
             Debug.Log("TouchScript START");
             uiScript = FindObjectOfType<MinigameOkeoverBridgeUIController>();
+
+            SwipeDetection.instance.swipePerformed += HandleSwipe;
         }
 
         void Update()
         {
-            Debug.Log("uiScript.isPlayingGame: " + uiScript.isPlayingGame);
+            //Debug.Log("uiScript.isPlayingGame: " + uiScript.isPlayingGame);
             if (uiScript.isPlayingGame && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -32,8 +32,6 @@ public class TouchScript : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    //Debug.Log("name: " + hit.collider.name);
-
                     GameObject sprite;
                     switch (hit.collider.tag)
                     {
@@ -52,17 +50,8 @@ public class TouchScript : MonoBehaviour
                             CaddisflyCountIncreased?.Invoke(); // trigger the event
                             break;
 
-                        // if we touched a spider, delete it & play a sound
-                        case "Spider":
-                            Debug.Log("touched a spider");
-                            sprite = hit.transform.gameObject;
-                            Destroy(sprite);
-
-                            spiderSquishSound.Play();
-                            break;
-
                         default:
-                            Debug.Log("touched something else");
+                            Debug.Log("touched something else (not egg)");
                             break;
                     }
                 }
@@ -73,6 +62,41 @@ public class TouchScript : MonoBehaviour
             }
         }
 
+
+        // While eggs must be touched to do stuff, spiders must be swiped (mimics swiping away a spiderweb)
+        private void HandleSwipe(Vector2 direction)
+        {
+            Debug.Log("HANDLESWIPE...");
+            if (uiScript.isPlayingGame && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)  //
+            {                                                                                                   //
+                Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);                              //
+                RaycastHit hit;                                                                                 //
+                                                                                                                //
+                if (Physics.Raycast(ray, out hit))                                                              // same code as for touching
+                {
+                    // if we swiped on a spider, delete it & play a sound
+                    if (hit.collider.tag == "Spider")
+                    {
+                        Debug.Log("swiped on a spider");
+                        GameObject sprite = hit.transform.gameObject;
+                        Destroy(sprite);
+
+                        spiderSquishSound.Play();
+                    }
+                    else
+                    {
+                        Debug.Log("swiped on something else (not spider)");
+                    }
+                }
+                else
+                {
+                    Debug.Log("didn't swipe anything");
+                }
+            }
+
+        }
+
+
         private void SpawnCaddisfly(Vector3 objPos)
         {
             Debug.Log("spawning a caddisfly at " + objPos + "...");
@@ -82,5 +106,14 @@ public class TouchScript : MonoBehaviour
             CaddisflyBehaviour moveScript = newCaddisfly.GetComponent<CaddisflyBehaviour>();
             moveScript.SetHatchPosition(objPos);
         }
-    }
 
+
+        void OnDestroy()
+        {
+            // Unsubscribe from swipe event when this script is destroyed
+            if (SwipeDetection.instance != null)
+            {
+                SwipeDetection.instance.swipePerformed -= HandleSwipe;
+            }
+        }
+}
