@@ -27,6 +27,7 @@ This project was made using Unity XYZ and Lightship ARDK XYZ.
 
 ## Development Notes
 * For the minigame, the VPS mesh to use is called “Restoring Our Waterways II”. A second mesh called “John Britten Building” exists in the project too, just for testing. Enable the one you want to use.
+* The sprites are all 2D just because finding free 2D pictures was easier than finding free 3D assets. They;re intended to be 3D though, so they have 3D colliders. The spiders and flies also have a billboarding effect.
 
 ## Future Ideas
 This is a list of stuff I didn't have time to implement in the internship, but wanted to.
