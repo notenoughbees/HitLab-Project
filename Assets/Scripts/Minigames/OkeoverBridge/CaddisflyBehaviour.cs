@@ -18,6 +18,10 @@ public class CaddisflyBehaviour : MonoBehaviour
     private Vector3 targetPosition;
     private GameObject[] eggLayingAreas;
 
+    // for changing the fly colour
+    private SpriteRenderer flyRenderer;
+    private Color flyOriginalColour;
+
     void Start()
     {
         Debug.Log("CaddisflyBehaviour START");
@@ -27,6 +31,10 @@ public class CaddisflyBehaviour : MonoBehaviour
 
         eggLayingAreas = GameObject.FindGameObjectsWithTag("EggLayingArea");
         StartCoroutine(LayEggs());
+
+        // for changing the fly colour
+        flyRenderer = GetComponent<SpriteRenderer>();
+        flyOriginalColour = flyRenderer.color;
     }
 
     void Update()
@@ -106,7 +114,18 @@ public class CaddisflyBehaviour : MonoBehaviour
         Instantiate(eggPrefab, eggLayingPos, Quaternion.identity);
 
 
+        // flash green to provide visual feedback
+        StartCoroutine(FlashFlyColour());
+
+        // call this event to increase the score
         EggCountIncreased?.Invoke();
+    }
+
+    private IEnumerator FlashFlyColour()
+    {
+        flyRenderer.color = Color.green;
+        yield return new WaitForSeconds(2f);
+        flyRenderer.color = flyOriginalColour;
     }
 
 

@@ -1892,14 +1892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f20c7afb3041b4298526aa326acab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _introScreen: {fileID: 1690622668}
-  _gamePlayScreen: {fileID: 1974585358}
-  _gameOverScreen: {fileID: 1789668217}
-  _XrOrigin: {fileID: 1074607858}
-  _ArSession: {fileID: 1054912915}
-  isPlayingGame: 0
-  timeLeft: 180
-  timerValue: {fileID: 147326897}
 --- !u!114 &342397406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,7 +1909,7 @@ MonoBehaviour:
   _gameOverScreen: {fileID: 1789668217}
   _XrOrigin: {fileID: 1074607858}
   _ArSession: {fileID: 1054912915}
-  timeLeft: 18
+  timeLeft: 180
   timerValue: {fileID: 147326897}
 --- !u!1 &345488666
 GameObject:
