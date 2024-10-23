@@ -9,22 +9,25 @@ public class CaddisflyBehaviour : MonoBehaviour
 {
     public static event Action EggCountIncreased = delegate { };
 
-    public GameObject eggPrefab;
-
     private Vector3 hatchPosition;
     private const float maxDist = 5;
     private float speed = 0.8f;
     private const float interval = 4;
     private Vector3 targetPosition;
+
+    // for laying eggs
+    public GameObject eggPrefab;
+    private bool isLayingEgg;
     private GameObject[] eggLayingAreas;
 
     // for changing the fly colour
     private SpriteRenderer flyRenderer;
     private Color flyOriginalColour;
 
+
     void Start()
     {
-        Debug.Log("CaddisflyBehaviour START");
+        //Debug.Log("CaddisflyBehaviour START");
 
         SetNewTargetPosition();
         StartCoroutine(ChangeTargetPosition());
@@ -39,22 +42,25 @@ public class CaddisflyBehaviour : MonoBehaviour
 
     void Update()
     {
-        moveAround();
-        Debug.DrawLine(transform.position, Vector3.up, Color.black);
-        Debug.DrawRay(transform.position, transform.forward, Color.blue);
+        flyAroundRandomly();
+        //Debug.DrawLine(transform.position, Vector3.up, Color.black);
+        //Debug.DrawRay(transform.position, transform.forward, Color.blue);
     }
 
     // Move the caddisfly by randomly moving directly forward at set speed.
     // We don't need to rotate it since at the moment it's just a 2D sprite with billboarding (it'll need to be rotated once it's a 3D model tho)
-    void moveAround()
+    void flyAroundRandomly()
     {
-        // Move towards the target position
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        // Once the caddisfly reaches the target position, set a new target position
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        if(!isLayingEgg)
         {
-            SetNewTargetPosition();
+            // Move towards the target position
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+            // Once the caddisfly reaches the target position, set a new target position
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                SetNewTargetPosition();
+            }
         }
     }
 
@@ -80,26 +86,30 @@ public class CaddisflyBehaviour : MonoBehaviour
 
     IEnumerator LayEggs()
     {
-        // Wait an initial period of 20-30s before starting to lay eggs
-        yield return new WaitForSeconds(UnityEngine.Random.Range(20, 30));
+        // Wait an initial period before starting to lay eggs
+        //yield return new WaitForSeconds(UnityEngine.Random.Range(20, 30));
+        yield return new WaitForSeconds(10);
 
-        // Continously lay eggs every 30-40s
+        // Continously lay eggs semi-periodically
         while (true)
         {
-            LayEgg();
+            StartCoroutine(LayEgg());
 
-            yield return new WaitForSeconds(UnityEngine.Random.Range(30, 40));
+            //yield return new WaitForSeconds(UnityEngine.Random.Range(30, 45));
+            yield return new WaitForSeconds(10);
         }
     }
 
 
-    void LayEgg()
+    IEnumerator LayEgg() // is coroutine due to MoveTowards()
     {
+        isLayingEgg = true;
+        Debug.Log("ISLAYINGEGG set to TRUE");
+
         // pick an egg-laying area to go to
         GameObject eggLayingArea = eggLayingAreas[UnityEngine.Random.Range(0, eggLayingAreas.Length)];
 
         //TODO: need to pick a point across all of the planes, NOT randomly pick a plane and then randomly pick a point, since that results in many eggs on small planes & few eggs on large planes.
-
         // pick a point on that area to lay the eggs at
         Bounds bounds = eggLayingArea.GetComponent<Renderer>().bounds;
         Vector3 eggLayingPos = new Vector3(
@@ -108,18 +118,26 @@ public class CaddisflyBehaviour : MonoBehaviour
             UnityEngine.Random.Range(bounds.min.z, bounds.max.z)
         );
 
+        // fly over to the point
+        Debug.Log("Moving to " + eggLayingPos + " to lay an egg...");
+        while(Vector3.Distance(transform.position, eggLayingPos) > 0.001f) {
+            transform.position = Vector3.MoveTowards(transform.position, eggLayingPos, speed * Time.deltaTime);
+            // must yield each frame so the fly actually flies over to the point across multiple frames, instead of just teleporting there over one frame
+            yield return null;
+        }
         // lay the egg sac
-        //TODO: make fly actually fly over to the egg laying area. Currently, the egg appears without the fly moving from its current position
-        transform.position = Vector3.MoveTowards(transform.position, eggLayingPos, speed * Time.deltaTime);
-        Debug.Log("Laying an egg at " + eggLayingPos + "...");
+        Debug.Log("Laid an egg at " + eggLayingPos);
         Instantiate(eggPrefab, eggLayingPos, Quaternion.identity);
 
 
         // flash green to provide visual feedback
-        StartCoroutine(FlashFlyColour(new Color(0, 255, 0), 2));
+        StartCoroutine(FlashFlyColour(new Color(0, 255, 0), 1));
 
         // trigger this event to increase the score
         EggCountIncreased?.Invoke();
+
+        isLayingEgg = false;
+        Debug.Log("ISLAYINGEGG set to FALSE");
     }
 
     public IEnumerator FlashFlyColour(Color colour, float delay)
@@ -135,7 +153,7 @@ public class CaddisflyBehaviour : MonoBehaviour
     public void SetHatchPosition(Vector3 pos)
     {
         hatchPosition = pos;
-        Debug.Log("hatch position: " + hatchPosition);
+        //Debug.Log("hatch position: " + hatchPosition);
     }
 
     // This method is used when flies get stuck in webs, as their speed becomes 0

@@ -13,7 +13,7 @@ public class SpiderwebSpawning : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("SpiderwebSpawning START");
+        //Debug.Log("SpiderwebSpawning START");
         uiScript = FindObjectOfType<MinigameOkeoverBridgeUIController>();
 
         StartCoroutine(SpawnWebs());
@@ -54,7 +54,7 @@ public class SpiderwebSpawning : MonoBehaviour
 
             // spawn the web
             Instantiate(spiderwebPrefab, webSpawningPos, Quaternion.identity);
-            Debug.Log("[SpiderwebSpawning] spawned a web at: " + webSpawningPos);
+            //Debug.Log("[SpiderwebSpawning] spawned a web at: " + webSpawningPos);
         }
         catch (IndexOutOfRangeException e) {
             Debug.LogError("[SpiderwebSpawning] no web spawning area found");
