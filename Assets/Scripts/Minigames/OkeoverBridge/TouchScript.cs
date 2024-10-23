@@ -67,7 +67,7 @@ public class TouchScript : MonoBehaviour
         private void HandleSwipe(Vector2 direction)
         {
             Debug.Log("HANDLESWIPE...");
-            if (uiScript.isPlayingGame && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)  //
+            if (uiScript.isPlayingGame && Input.touchCount > 0)                                                 // (simplier If stmt)
             {                                                                                                   //
                 Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);                              //
                 RaycastHit hit;                                                                                 //
