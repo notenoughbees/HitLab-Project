@@ -66,7 +66,6 @@ public class TouchScript : MonoBehaviour
         // While eggs must be touched to do stuff, spiders must be swiped (mimics swiping away a spiderweb)
         private void HandleSwipe(Vector2 direction)
         {
-            Debug.Log("HANDLESWIPE...");
             if (uiScript.isPlayingGame && Input.touchCount > 0)                                                 // (simplier If stmt)
             {                                                                                                   //
                 Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);                              //
