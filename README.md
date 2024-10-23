@@ -46,6 +46,7 @@ Discussed in the Google Doc: the RR is a sum of the high scores from all minigam
 ##### Sample code used
 * The map screen is based on the [Map-based Resource Game](https://lightship.dev/docs/maps/sample_projects/#map-based-resource-game) sample app.
 * The VPS Localisation screen is based on the [VPS Localisation](https://lightship.dev/docs/ardk/sample_projects/#vps-localization) sample from the ARDK samples app.
+* Playback sample is from [Alive](https://youtu.be/rJHBvh28dV4?si=4idiOsBgUnbMhld8) [Studios](https://drive.google.com/drive/folders/1vS9mHet8JYzekdEmvQa1riYwANRPwAL3).
 * Unity tutorials followed are linked in the code comments.
 
 #### Icons
