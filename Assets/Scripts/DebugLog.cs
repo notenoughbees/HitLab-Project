@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Code from: https://stackoverflow.com/a/67704821
 public class DebugLog : MonoBehaviour
 {
     uint qsize = 100;  // number of messages to keep
