@@ -69,7 +69,7 @@ public class SpiderBehaviour : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("SpiderBehaviour START");
+        //Debug.Log("SpiderBehaviour START");
     }
 
     void OnTriggerEnter(Collider other)
@@ -77,14 +77,18 @@ public class SpiderBehaviour : MonoBehaviour
         // when the spider catches the caddisfly, destroy the fly and make a sound, then make the spider target another caddisfly
         if (other.CompareTag("Caddisfly"))
         {
-            Debug.Log("[SPIDER] Spider caught the fly!");
+            Debug.Log("[SPIDERWEB] A fly got caught in a web!");
             GameObject fly = other.gameObject;
             CaddisflyBehaviour flyBehaviour = other.GetComponent<CaddisflyBehaviour>();
 
-            StartCoroutine(flyBehaviour.FlashFlyColour(new Color(192, 0, 0)));
+            // stop the fly from moving
+            flyBehaviour.setSpeed(0f);
+
+            // flash red
+            StartCoroutine(flyBehaviour.FlashFlyColour(new Color(192, 0, 0), 1));
 
             // must kill the fly after a delay since we want it to flash red first
-            StartCoroutine(KillFlyAfterDelay(fly, 2));
+            StartCoroutine(KillFlyAfterDelay(fly, 1));
 
             // trigger this event to decrease the score
             CaddisflyCountDecreased?.Invoke();

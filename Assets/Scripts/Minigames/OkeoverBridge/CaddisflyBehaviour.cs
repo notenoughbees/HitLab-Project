@@ -13,7 +13,7 @@ public class CaddisflyBehaviour : MonoBehaviour
 
     private Vector3 hatchPosition;
     private const float maxDist = 5;
-    private const float speed = 0.8f;
+    private float speed = 0.8f;
     private const float interval = 4;
     private Vector3 targetPosition;
     private GameObject[] eggLayingAreas;
@@ -116,18 +116,19 @@ public class CaddisflyBehaviour : MonoBehaviour
 
 
         // flash green to provide visual feedback
-        StartCoroutine(FlashFlyColour(new Color(0, 255, 0)));
+        StartCoroutine(FlashFlyColour(new Color(0, 255, 0), 2));
 
         // trigger this event to increase the score
         EggCountIncreased?.Invoke();
     }
 
-    public IEnumerator FlashFlyColour(Color colour)
+    public IEnumerator FlashFlyColour(Color colour, float delay)
     {
         flyRenderer.color = colour;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(delay);
         flyRenderer.color = flyOriginalColour;
     }
+
 
 
 
@@ -135,6 +136,12 @@ public class CaddisflyBehaviour : MonoBehaviour
     {
         hatchPosition = pos;
         Debug.Log("hatch position: " + hatchPosition);
+    }
+
+    // This method is used when flies get stuck in webs, as their speed becomes 0
+    public void setSpeed(float s)
+    {
+        speed = s;
     }
 
 }
