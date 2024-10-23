@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SpiderwebSpawning : MonoBehaviour
 {
+    private MinigameOkeoverBridgeUIController uiScript;
+
     public GameObject spiderwebPrefab;
     private GameObject webSpawningArea;
 
@@ -12,12 +14,9 @@ public class SpiderwebSpawning : MonoBehaviour
     void Start()
     {
         Debug.Log("SpiderwebSpawning START");
-        StartCoroutine(SpawnWebs());
-    }
+        uiScript = FindObjectOfType<MinigameOkeoverBridgeUIController>();
 
-    void Update()
-    {
-        SpawnWebs();
+        StartCoroutine(SpawnWebs());
     }
 
 
@@ -26,7 +25,10 @@ public class SpiderwebSpawning : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(2, 10)); // can change numbers to make game easier/harder
-            SpawnWeb();
+            if (uiScript.isPlayingGame)
+            {
+                SpawnWeb();
+            }
         }
     }
 
