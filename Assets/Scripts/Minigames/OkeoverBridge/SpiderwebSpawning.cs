@@ -24,7 +24,7 @@ public class SpiderwebSpawning : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 10)); // can change numbers to make game easier/harder
+            yield return new WaitForSeconds(UnityEngine.Random.Range(3, 15)); // can change numbers to make game easier/harder
             if (uiScript.isPlayingGame)
             {
                 SpawnWeb();
