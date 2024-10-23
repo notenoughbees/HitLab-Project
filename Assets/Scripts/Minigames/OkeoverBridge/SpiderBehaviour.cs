@@ -81,6 +81,8 @@ public class SpiderBehaviour : MonoBehaviour
             GameObject fly = other.gameObject;
             CaddisflyBehaviour flyBehaviour = other.GetComponent<CaddisflyBehaviour>();
 
+            caddisflyTrappedSound.Play();
+
             // stop the fly from moving
             flyBehaviour.setSpeed(0f);
 
@@ -99,7 +101,6 @@ public class SpiderBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(fly);
-        caddisflyTrappedSound.Play();
     }
 
 }
