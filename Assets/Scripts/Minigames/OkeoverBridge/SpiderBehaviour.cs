@@ -17,7 +17,7 @@ public class SpiderBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // when the spider catches the caddisfly, destroy the fly and make a sound, then make the spider target another caddisfly
+        // when a fly collides with a spiderweb, stop it moving, colour it red, then destroy it after a delay
         if (other.CompareTag("Caddisfly"))
         {
             Debug.Log("[SPIDERWEB] A fly got caught in a web!");
