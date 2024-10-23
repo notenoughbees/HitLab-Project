@@ -87,16 +87,14 @@ public class CaddisflyBehaviour : MonoBehaviour
     IEnumerator LayEggs()
     {
         // Wait an initial period before starting to lay eggs
-        //yield return new WaitForSeconds(UnityEngine.Random.Range(20, 30));
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(UnityEngine.Random.Range(20, 30));
 
         // Continously lay eggs semi-periodically
         while (true)
         {
             StartCoroutine(LayEgg());
 
-            //yield return new WaitForSeconds(UnityEngine.Random.Range(30, 45));
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(30, 45));
         }
     }
 
