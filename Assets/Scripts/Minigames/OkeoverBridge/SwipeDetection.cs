@@ -12,7 +12,7 @@ public class SwipeDetection : MonoBehaviour
     public event Swipe swipePerformed;
 
     [SerializeField] private InputAction position, press;
-    [SerializeField] private float swipeResistance = 100; // threshold for touch to be considered a swipe
+    [SerializeField] private float swipeResistance = 100; // threshold for touch to be considered a swipe, measured in pixels. //TODO: make reqd swiping legth dependent on screen size
     private Vector2 initialPos;
     private Vector2 currentPos => position.ReadValue<Vector2>();
 
@@ -21,8 +21,8 @@ public class SwipeDetection : MonoBehaviour
     {
         position.Enable();
         press.Enable();
-        //press.performed += _ => { initialPos = currentPos; };
-        press.performed += _ => { initialPos = currentPos; Debug.Log("[SWIPE DETECTION] Swipe started"); };
+        press.performed += _ => { initialPos = currentPos; };
+        //press.performed += _ => { initialPos = currentPos; Debug.Log("[SWIPE DETECTION] Swipe started"); };
         press.canceled += _ => DetectSwipe();
 
         instance = this;

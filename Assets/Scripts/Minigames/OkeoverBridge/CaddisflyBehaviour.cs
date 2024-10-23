@@ -13,10 +13,14 @@ public class CaddisflyBehaviour : MonoBehaviour
 
     private Vector3 hatchPosition;
     private const float maxDist = 5;
-    private const float speed = 0.8f;
+    private float speed = 0.8f;
     private const float interval = 4;
     private Vector3 targetPosition;
     private GameObject[] eggLayingAreas;
+
+    // for changing the fly colour
+    private SpriteRenderer flyRenderer;
+    private Color flyOriginalColour;
 
     void Start()
     {
@@ -27,6 +31,10 @@ public class CaddisflyBehaviour : MonoBehaviour
 
         eggLayingAreas = GameObject.FindGameObjectsWithTag("EggLayingArea");
         StartCoroutine(LayEggs());
+
+        // for changing the fly colour
+        flyRenderer = GetComponent<SpriteRenderer>();
+        flyOriginalColour = flyRenderer.color;
     }
 
     void Update()
@@ -92,22 +100,35 @@ public class CaddisflyBehaviour : MonoBehaviour
 
         //TODO: need to pick a point across all of the planes, NOT randomly pick a plane and then randomly pick a point, since that results in many eggs on small planes & few eggs on large planes.
 
-        // pick a point on that area to lay te eggs at
+        // pick a point on that area to lay the eggs at
         Bounds bounds = eggLayingArea.GetComponent<Renderer>().bounds;
         Vector3 eggLayingPos = new Vector3(
             UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
-            eggLayingArea.transform.position.y,
+            eggLayingArea.transform.position.y, //TODO: make it possible to lay eggs anywhere on an angled plane w/o treating it like a cube
             UnityEngine.Random.Range(bounds.min.z, bounds.max.z)
         );
 
         // lay the egg sac
+        //TODO: make fly actually fly over to the egg laying area. Currently, the egg appears without the fly moving from its current position
         transform.position = Vector3.MoveTowards(transform.position, eggLayingPos, speed * Time.deltaTime);
         Debug.Log("Laying an egg at " + eggLayingPos + "...");
         Instantiate(eggPrefab, eggLayingPos, Quaternion.identity);
 
 
+        // flash green to provide visual feedback
+        StartCoroutine(FlashFlyColour(new Color(0, 255, 0), 2));
+
+        // trigger this event to increase the score
         EggCountIncreased?.Invoke();
     }
+
+    public IEnumerator FlashFlyColour(Color colour, float delay)
+    {
+        flyRenderer.color = colour;
+        yield return new WaitForSeconds(delay);
+        flyRenderer.color = flyOriginalColour;
+    }
+
 
 
 
@@ -115,6 +136,12 @@ public class CaddisflyBehaviour : MonoBehaviour
     {
         hatchPosition = pos;
         Debug.Log("hatch position: " + hatchPosition);
+    }
+
+    // This method is used when flies get stuck in webs, as their speed becomes 0
+    public void setSpeed(float s)
+    {
+        speed = s;
     }
 
 }
