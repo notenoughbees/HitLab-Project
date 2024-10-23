@@ -106,7 +106,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.7899995
+  m_Radius: 4.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1207759782976631229
 MonoBehaviour:
@@ -120,8 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece1ac25119bc5e42a586afca6613f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spiderSpeed: 0.5
-  caddisflyDieSound: {fileID: 0}
+  caddisflyTrappedSound: {fileID: 0}
 --- !u!114 &516476139139081505
 MonoBehaviour:
   m_ObjectHideFlags: 0

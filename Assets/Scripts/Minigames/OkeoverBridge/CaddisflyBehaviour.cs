@@ -116,15 +116,15 @@ public class CaddisflyBehaviour : MonoBehaviour
 
 
         // flash green to provide visual feedback
-        StartCoroutine(FlashFlyColour());
+        StartCoroutine(FlashFlyColour(new Color(0, 255, 0)));
 
-        // call this event to increase the score
+        // trigger this event to increase the score
         EggCountIncreased?.Invoke();
     }
 
-    private IEnumerator FlashFlyColour()
+    public IEnumerator FlashFlyColour(Color colour)
     {
-        flyRenderer.color = Color.green;
+        flyRenderer.color = colour;
         yield return new WaitForSeconds(2f);
         flyRenderer.color = flyOriginalColour;
     }
