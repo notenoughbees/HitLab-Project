@@ -8,8 +8,6 @@ public class SpiderBehaviour : MonoBehaviour
 {
     public static event Action CaddisflyCountDecreased = delegate { };
 
-    public AudioSource caddisflyTrappedSound;
-
     void Start()
     {
         //Debug.Log("SpiderBehaviour START");
@@ -24,26 +22,14 @@ public class SpiderBehaviour : MonoBehaviour
             GameObject fly = other.gameObject;
             CaddisflyBehaviour flyBehaviour = other.GetComponent<CaddisflyBehaviour>();
 
-            caddisflyTrappedSound.Play();
-
-            // stop the fly from moving
-            flyBehaviour.setSpeed(0f);
-
-            // flash red
-            StartCoroutine(flyBehaviour.FlashFlyColour(new Color(192, 0, 0), 1));
-
-            // must kill the fly after a delay since we want it to flash red first
-            StartCoroutine(KillFlyAfterDelay(fly, 1));
+            // must destroy the fly outside of this script so that the fly
+            // still gets destroyed even if we swipe the web (destroying it) 
+            // after a fly gets caught in it but before the fly can be destroyed
+            flyBehaviour.FlyCaught();
 
             // trigger this event to decrease the score
             CaddisflyCountDecreased?.Invoke();
         }
-    }
-
-    IEnumerator KillFlyAfterDelay(GameObject fly, int delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(fly);
     }
 
 }

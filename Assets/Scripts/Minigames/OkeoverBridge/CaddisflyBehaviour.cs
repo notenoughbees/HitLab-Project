@@ -9,6 +9,8 @@ public class CaddisflyBehaviour : MonoBehaviour
 {
     public static event Action EggCountIncreased = delegate { };
 
+    public AudioSource caddisflyTrappedSound;
+
     private Vector3 hatchPosition;
     private const float maxDist = 5;
     private float speed = 0.8f;
@@ -23,6 +25,8 @@ public class CaddisflyBehaviour : MonoBehaviour
     // for changing the fly colour
     private SpriteRenderer flyRenderer;
     private Color flyOriginalColour;
+
+    public bool isCaught { get; private set; } = false;
 
 
     void Start()
@@ -143,6 +147,30 @@ public class CaddisflyBehaviour : MonoBehaviour
         flyRenderer.color = colour;
         yield return new WaitForSeconds(delay);
         flyRenderer.color = flyOriginalColour;
+    }
+
+    public void FlyCaught()
+    {
+        // only call this method once, when the fly collides with a web
+        if (isCaught) { return; }
+        isCaught = true;
+
+        caddisflyTrappedSound.Play();
+
+        // stop the fly from moving
+        setSpeed(0f);
+
+        // flash red
+        StartCoroutine(FlashFlyColour(new Color(192, 0, 0), 1));
+
+        // must kill the fly after a delay since we want it to flash red first
+        StartCoroutine(KillFlyAfterDelay(1));
+    }
+
+    IEnumerator KillFlyAfterDelay(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 
 
