@@ -31,8 +31,6 @@ public class CaddisflyBehaviour : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log("CaddisflyBehaviour START");
-
         SetNewTargetPosition();
         StartCoroutine(ChangeTargetPosition());
 
@@ -106,7 +104,6 @@ public class CaddisflyBehaviour : MonoBehaviour
     IEnumerator LayEgg() // is coroutine due to MoveTowards()
     {
         isLayingEgg = true;
-        Debug.Log("ISLAYINGEGG set to TRUE");
 
         // pick an egg-laying area to go to
         GameObject eggLayingArea = eggLayingAreas[UnityEngine.Random.Range(0, eggLayingAreas.Length)];
@@ -139,7 +136,6 @@ public class CaddisflyBehaviour : MonoBehaviour
         EggCountIncreased?.Invoke();
 
         isLayingEgg = false;
-        Debug.Log("ISLAYINGEGG set to FALSE");
     }
 
     public IEnumerator FlashFlyColour(Color colour, float delay)

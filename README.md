@@ -41,6 +41,10 @@ Create markers on the map to show the minigame locations. The [Emoji Garden](htt
 Currently, you must press a button on the map screen, then press a button to load the list of landmarks, then select a landmark to go to the VPS Localisation screen for that landmark. This could probably be simplified so that you just press the button on the map screen and go to the VPS Localisation screen for the nearest VPS wayspot immeaditely.
 #### "Regenerative Rating" score
 Discussed in the Google Doc: the RR is a sum of the high scores from all minigames. This combined score encourages doing all of the minigames and trying to be more regenerative when playing them, to get a better RR.
+#### Occlusion
+Maybe make eggs and flies (not webs) appear behind the trees and bridge, to increase immersion (might make game a bit harder though).
+#### Fly touching
+Make screen touches ignore flies, so that we can hatch eggs even if there are a lot of flies flying in front of it.
 
 ## Attributions
 ##### Sample code used

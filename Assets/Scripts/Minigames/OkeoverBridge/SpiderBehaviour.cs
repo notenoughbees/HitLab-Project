@@ -8,11 +8,6 @@ public class SpiderBehaviour : MonoBehaviour
 {
     public static event Action CaddisflyCountDecreased = delegate { };
 
-    void Start()
-    {
-        //Debug.Log("SpiderBehaviour START");
-    }
-
     void OnTriggerEnter(Collider other)
     {
         // when a fly collides with a spiderweb, stop it moving, colour it red, then destroy it after a delay

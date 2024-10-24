@@ -15,7 +15,6 @@ public class TouchScript : MonoBehaviour
 
         void Start()
         {
-            Debug.Log("TouchScript START");
             uiScript = FindObjectOfType<MinigameOkeoverBridgeUIController>();
 
             SwipeDetection.instance.swipePerformed += HandleSwipe;

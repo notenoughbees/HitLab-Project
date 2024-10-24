@@ -13,7 +13,6 @@ public class SpiderwebSpawning : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log("SpiderwebSpawning START");
         uiScript = FindObjectOfType<MinigameOkeoverBridgeUIController>();
 
         StartCoroutine(SpawnWebs());
